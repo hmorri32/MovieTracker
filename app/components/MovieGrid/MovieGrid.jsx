@@ -6,6 +6,8 @@ export default class MovieGrid extends Component {
     super();
   }
 
+
+
   render() {
     return (
       <div>
