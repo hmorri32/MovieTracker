@@ -5,9 +5,8 @@ import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-r
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
 
-import { movies } from './reducers/reducers'
+import { movies } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
-import MovieGrid from './components/MovieGrid/MovieGrid';
 import './assets/styles/main.css';
 
 const history    = createHistory()
