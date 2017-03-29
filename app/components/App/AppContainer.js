@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions'
 
 
-const mapStateToProps = (state) => {
-  return state
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addMovies: (movie) => {
@@ -15,4 +11,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)

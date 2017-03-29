@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Movie from '../Movie/Movie.js'
+import Movie from '../Movie/Movie.js';
 
 export default class MovieGrid extends Component {
-  constructor() {
-    super();
-  }
-
-
 
   render() {
     return (
       <div>
-        <Movie />
+        {this.props.movies.map((movie, i) => {
+          return <Movie title={movie.original_title}
+                        poster={movie.poster_path}
+                        vote={movie.vote_average}
+                        key={i}/>
+       })}
       </div>
     )
   }
