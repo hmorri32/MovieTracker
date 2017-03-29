@@ -21,7 +21,7 @@ const root       = combineReducers({
 const store = createStore(root, devTools, applyMiddleware(middleware))
 
 const router = (
-  <Provider store={ store}>
+  <Provider store={store}>
     <ConnectedRouter history={history} >
       <App />
     </ConnectedRouter>
@@ -29,4 +29,3 @@ const router = (
 )
 
 render(router, document.getElementById('main'))
-
