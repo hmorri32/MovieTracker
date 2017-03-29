@@ -5,8 +5,8 @@ import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-r
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
 
-import * as reducers from './reducers/reducers'
-import App from './components/App/app.jsx';
+import { movies } from './reducers/reducers'
+import AppContainer from './components/App/AppContainer';
 import MovieGrid from './components/MovieGrid/MovieGrid';
 import './assets/styles/main.css';
 
@@ -15,6 +15,7 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 const middleware = routerMiddleware(history)
 
 const root       = combineReducers({
+  movies,
   router: routerReducer
 })
 
@@ -23,7 +24,7 @@ const store = createStore(root, devTools, applyMiddleware(middleware))
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history} >
-      <App />
+      <AppContainer />
     </ConnectedRouter>
   </Provider>
 )
