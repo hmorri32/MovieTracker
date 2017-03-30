@@ -12,6 +12,7 @@ export default class MovieGrid extends Component {
                     title={movie.original_title}
                     poster={movie.poster_path}
                     vote={movie.vote_average}
+                    id={movie.id}
                     key={i}
                     />
        })}
