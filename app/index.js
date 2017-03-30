@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
-import { movies } from './reducers/reducers';
+import { movies, user } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
 
@@ -19,6 +19,7 @@ const middleware = routerMiddleware(history)
 
 const root       = combineReducers({
   movies,
+  user,
   router: routerReducer
 })
 
