@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie.js';
-import '../../assets/styles/movieGrid.css';
+import './movieGrid.css';
 
 export default class MovieGrid extends Component {
 
@@ -8,10 +8,11 @@ export default class MovieGrid extends Component {
     return (
       <div className="movie-grid">
         {this.props.movies.map((movie, i) => {
-          return <Movie title={movie.original_title}
-                        poster={movie.poster_path}
-                        vote={movie.vote_average}
-                        key={i}/>
+          return <Movie
+                    title={movie.original_title}
+                    poster={movie.poster_path}
+                    vote={movie.vote_average}
+                    key={i}/>
        })}
       </div>
     )

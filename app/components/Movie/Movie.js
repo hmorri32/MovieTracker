@@ -1,19 +1,16 @@
 import React from 'react';
-import '../../assets/styles/movie.css';
 import { browserHistory } from 'react-router'
-
+import { Link } from 'react-router-dom';
+import './movie.css';
 
 const Movie = ({title, poster, vote}) => {
-
-console.log(poster);
   return (
-
+    <Link to='/movie-detail' className='movie-card'>
       <div
-        onClick={ () => browserHistory.push('/movie-detail') }
         className="movie-card"
         style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${poster})` } }>
-
       </div>
+    </Link>
   )
 }
 
