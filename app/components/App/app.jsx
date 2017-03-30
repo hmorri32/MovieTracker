@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import MovieGridContainer from '../MovieGrid/MovieGridContainer'
+import MovieGridContainer from '../MovieGrid/MovieGridContainer';
+import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
+import { Route } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
+
 
 export default class App extends Component {
   constructor() {
@@ -18,11 +23,17 @@ export default class App extends Component {
   }
 
   render() {
+
     return (
       <div>
-        <h1>Movie Watcher</h1>
-        <MovieGridContainer />
+        <Link to='/'><h1>Movie Watcher</h1></Link>
+        <Route exact path='/' component={MovieGridContainer} />
+        <Route exact path='/movie-detail' component={MovieDetailContainer} />
       </div>
     )
   }
 }
+
+
+
+// <Route exact path='/movie-grid' component={MovieGridContainer} />
