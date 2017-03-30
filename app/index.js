@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import createHistory from 'history/createBrowserHistory'
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import { movies } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
+import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
+
 import './assets/styles/main.css';
 
 const history    = createHistory()
@@ -29,3 +31,11 @@ const router = (
 )
 
 render(router, document.getElementById('main'))
+
+
+
+
+
+
+
+// <Route path='/movie-detail' component={MovieDetailContainer}/>

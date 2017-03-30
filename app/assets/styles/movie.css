@@ -6,3 +6,7 @@
   height: 177px;
   margin: 5px;
 }
+
+.movie-card:hover {
+  cursor: pointer;
+}
