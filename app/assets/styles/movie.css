@@ -1,0 +1,8 @@
+.movie-card{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 22%;
+  max-width: 120px;
+  height: 177px;
+  margin: 5px;
+}
