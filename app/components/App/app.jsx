@@ -26,14 +26,10 @@ export default class App extends Component {
       <div>
         <Link className='movie-watcher-h1' to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
         <Route exact path='/' component={ MovieGridContainer } />
-        <Route exact path='/movie-detail' render={({ match }) =>
-          <MovieDetailContainer />
+        <Route exact path='/movie/:id' render={({ match }) =>
+          <MovieDetailContainer match={ match }/>
         } />
       </div>
     )
   }
 }
-
-
-
-
