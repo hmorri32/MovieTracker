@@ -11,7 +11,6 @@ export default class MovieDetail extends Component {
 
   render() {
     const movie = this.findMovie()[0]
-    console.log(movie.title);
     return(
       <div className="movie-div">
         <img className="poster" src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}/>

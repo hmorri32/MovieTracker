@@ -11,3 +11,10 @@ export const logIn = (user) => {
     user
   }
 };
+
+export const logOut = () => {
+  return {
+    type: 'LOG_OUT',
+    user: ''
+  }
+};
