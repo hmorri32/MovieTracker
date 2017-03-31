@@ -1,14 +1,50 @@
-p{
-  color: red;
-}
+
 
 .movie-div{
-  display: flex;
-  width: 95%;
+  max-width: 93%;
   margin: auto;
-  background-color: grey;
+  height: 191px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.poster {
+.info-div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: 'Amatic SC', cursive;
+  background: linear-gradient(to left, black 62%, transparent 79%);
+  background-position: -27px;
+  width: 72%;
+  float: right;
+  height: 100%;
+}
 
+.info-div *{
+  margin-left: 33%;
+  margin-top: 0;
+}
+
+.title {
+  font-size: 24px;
+  color: white;
+}
+
+.description,
+.vote {
+  font-size: 12px;
+  color: #999;
+}
+
+.favorites {
+  background-color: black;
+  border: 2px white solid;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  align-self: center;
+}
+
+.favorites:hover {
+  cursor: pointer;
 }
