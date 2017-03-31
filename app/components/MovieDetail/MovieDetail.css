@@ -3,7 +3,7 @@
 .movie-div{
   max-width: 93%;
   margin: auto;
-  height: 191px;
+  height: 320px;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -14,7 +14,7 @@
   align-items: flex-start;
   flex-direction: column;
   font-family: 'Amatic SC', cursive;
-  background: linear-gradient(to left, black 62%, transparent 79%);
+  background: linear-gradient(to left, black 72%, transparent 97%);
   background-position: -27px;
   width: 72%;
   float: right;
@@ -27,13 +27,14 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: 44px;
   color: white;
 }
 
 .description,
-.vote {
-  font-size: 12px;
+.vote,
+.favorites {
+  font-size: 17px;
   color: #999;
 }
 
@@ -43,8 +44,11 @@
   color: white;
   font-family: 'Amatic SC', cursive;
   align-self: center;
+  padding: 2px 14px;
 }
 
 .favorites:hover {
   cursor: pointer;
+  color: gold;
+  border: 2px gold solid;
 }
