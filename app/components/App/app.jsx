@@ -6,7 +6,7 @@ import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 
 import LogInContainer from '../LogIn/LogInContainer.js';
 
-import './app'
+import './appcss'
 
 export default class App extends Component {
   constructor() {
