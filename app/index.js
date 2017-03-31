@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+
+  /******** store ********/
 import createHistory from 'history/createBrowserHistory';
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
+
+  /******** router ********/
+import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
+  /******** files ********/
 import { movies } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
-
 import './assets/styles/normalize.css';
 
-const history    = createHistory()
+const history = createHistory()
+const middleware = routerMiddleware(history)
 const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-const middleware = routerMiddleware(history)
-
-const root       = combineReducers({
+const root = combineReducers({
   movies,
-  router: routerReducer
+  route: routerReducer
 })
 
 const store = createStore(root, devTools, applyMiddleware(middleware))
@@ -33,4 +37,3 @@ const router = (
 )
 
 render(router, document.getElementById('main'))
-

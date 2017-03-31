@@ -11,16 +11,18 @@ export default class MovieDetail extends Component {
 
   render() {
     const movie = this.findMovie()[0]
-    console.log(movie.title);
     return(
-      <div className="movie-div">
-        <img className="poster" src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}/>
+      <div className="movie-div" style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.backdrop_path})` } }>
         <div className='info-div'>
-          <p>{ movie.title }</p>
-          <p>{ movie.overview }</p>
-          <p>{ movie.vote_average }</p>
+          <p className="title">{ movie.title }</p>
+          <p className="description">{ movie.overview }</p>
+          <p className="vote">{ movie.vote_average }</p>
+          <button className="favorites">Add to Favorites</button>
         </div>
       </div>
     )
   }
 }
+
+
+// <img className="poster" src={`https://image.tmdb.org/t/p/w342/${movie.backdrop_path}`}/>
