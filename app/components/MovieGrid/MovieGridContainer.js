@@ -6,4 +6,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, null)(MovieGrid);
+export default connect(mapStateToProps)(MovieGrid);

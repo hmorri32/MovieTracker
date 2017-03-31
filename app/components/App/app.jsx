@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import MovieGridContainer from '../MovieGrid/MovieGridContainer';
-import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import MovieGridContainer from '../MovieGrid/MovieGridContainer';
+import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
+
+import LogInContainer from '../LogIn/LogInContainer.js';
+
 import './app.css'
 
 export default class App extends Component {
@@ -15,7 +18,6 @@ export default class App extends Component {
     .then(response => response.json())
     .then((json) => {
       let movies = json.results
-      console.log(movies);
       this.props.addMovies(movies)
     })
   }
@@ -24,7 +26,12 @@ export default class App extends Component {
 
     return (
       <div>
-        <Link className='movie-watcher-h1' to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
+        <Link
+          className='movie-watcher-h1'
+          to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
+
+        <LogInContainer history={ this.props.history }/>
+
         <Route exact path='/' component={ MovieGridContainer } />
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/>

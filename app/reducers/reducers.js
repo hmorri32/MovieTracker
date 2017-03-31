@@ -1,12 +1,17 @@
-
-
 export const movies = (state = [], action) => {
-  console.log('inside reducer', action);
   switch(action.type){
     case 'ADD_MOVIES':
       return [...state, ...action.movie]
-
     default:
       return state
   }
 }
+
+export const user = (state = [], action) => {
+  switch(action.type){
+    case 'LOG_IN':
+      return action.user;
+    default:
+      return state;
+  }
+};

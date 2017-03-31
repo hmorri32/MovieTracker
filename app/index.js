@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
   /******** files ********/
-import { movies } from './reducers/reducers';
+import { movies, user } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
 import './assets/styles/normalize.css';
@@ -23,7 +23,8 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 
 const root = combineReducers({
   movies,
-  route: routerReducer
+  user,
+  router: routerReducer
 })
 
 const store = createStore(root, devTools, applyMiddleware(middleware))
