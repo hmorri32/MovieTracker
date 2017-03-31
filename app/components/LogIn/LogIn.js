@@ -14,7 +14,7 @@ class LogIn extends Component {
 
   signIn(e) {
     e.preventDefault()
-    console.log(this.props);
+
     const { logIn } = this.props
     const { email, password } = this.state;
 
@@ -31,20 +31,26 @@ class LogIn extends Component {
       }
       else {
         response.json().then(user => logIn(user))
+        this.props.history.push('/home')
       }
     })
   }
 
-  
-  render(){
+  handleClick(e) {
+    e.preventDefault()
+    this.props.logOut()
+  }
+
+  render() {
     return (
       <div>
+        {!this.props.user.data ? null : <p>Welcome: {this.props.user.data.name}</p>}
         <form>
           <input
             type='email'
             name='email'
-            value={this.state.email}
-            onChange={(e) => this.setState({ email: e.target.value })}
+            value={ this.state.email }
+            onChange={ (e) => this.setState({ email: e.target.value }) }
             ></input>
           <input
             type='password'
@@ -53,6 +59,7 @@ class LogIn extends Component {
             onChange={(e) => this.setState({ password: e.target.value })}
             ></input>
           <button onClick={ (e) => this.signIn(e) }></button>
+          <button onClick={ (e) => this.handleClick(e) }> LOG OUT </button>
         </form>
       </div>
     )
