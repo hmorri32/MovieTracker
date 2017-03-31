@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie.js';
-import './movieGrid.css';
+import './movieGrid';
 
 export default class MovieGrid extends Component {
 
