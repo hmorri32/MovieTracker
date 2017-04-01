@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './MovieDetailcss';
+import { Link } from 'react-router-dom';
 
 
 export default class MovieDetail extends Component {
-
 
   favButton() {
     if(this.props.user.id) {
@@ -12,7 +12,6 @@ export default class MovieDetail extends Component {
       )
     }
   }
-
 
   callFavApi(e) {
     const movie = this.findMovie()[0]
@@ -50,7 +49,14 @@ export default class MovieDetail extends Component {
           <p className="description">{ movie.overview }</p>
           <p className="vote">{ movie.vote_average }</p>
           <div>
-            <button onClick={ (e) => this.callFavApi(e) }>hey</button>
+
+            <button className='favorite-button'disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
+            {!this.props.user.name ? <div>
+              <p className='sign-in-please'>
+                (in order to sweet functionality you must be signed in.)
+              </p>
+              <Link className='sign-in-please'to='/signup'>Link To Signup Page</Link>
+            </div> : null}
           </div>
         </div>
       </div>
