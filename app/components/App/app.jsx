@@ -23,28 +23,42 @@ export default class App extends Component {
     })
   }
 
+  renderLoginConditionally() {
+    if(this.props.user.name){
+      return (
+        <div>
+          <LogInContainer history={history} />
+        </div>
+      )
+    }
+  }
+
   render() {
 
     return (
       <div>
+        <header>
+          <Link
+            className='movie-watcher-h1'
+            to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
 
-        <Link
-          className='movie-watcher-h1'
-          to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
+          <Link
+            className='sign-in'
+            to='/login'><h2>Sign In</h2></Link>
 
-        // create a Sign in button
-        // create signIn route
-
+            { this.renderLoginConditionally() }
+            
+        </header>
         <Route exact path='/' render={ () => {
             return (
               <div>
-                <LogInContainer history={ this.props.history } />
                 <MovieGridContainer />
               </div>
             )
           }} />
 
       <Route exact path='/signup' component={ NewUserContainer }/>
+      <Route path='/login' render={ () => <LogInContainer history={ this.props.history } /> }/>
 
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/>
