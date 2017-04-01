@@ -18,6 +18,7 @@ export default class MovieDetail extends Component {
     const movie = this.findMovie()[0]
 
     e.preventDefault()
+
     fetch('http://localhost:3000/api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},

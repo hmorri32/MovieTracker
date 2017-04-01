@@ -26,23 +26,30 @@ export default class App extends Component {
 
     return (
       <div>
+
         <Link
           className='movie-watcher-h1'
           to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
 
         <Route exact path='/' render={ () => {
-            if(!this.props.user.id){
-              return (
-                <div>
-                  <LogInContainer history={ this.props.history } />
-                  <MovieGridContainer />
-                </div>
-              )
-            } else {
-              return (
+            return (
+              <div>
+                <LogInContainer history={ this.props.history } />
                 <MovieGridContainer />
-              )
-            }
+              </div>
+            )
+            // if(!this.props.user.id){
+            //   return (
+            //     <div>
+            //       <LogInContainer history={ this.props.history } />
+            //       <MovieGridContainer />
+            //     </div>
+            //   )
+            // } else {
+            //   return (
+            //     <MovieGridContainer />
+            //   )
+            // }
           }} />
 
         <Route exact path='/movie/:id' render={({ match }) =>
