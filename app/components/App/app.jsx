@@ -32,6 +32,9 @@ export default class App extends Component {
           className='movie-watcher-h1'
           to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
 
+        // create a Sign in button
+        // create signIn route
+
         <Route exact path='/' render={ () => {
             return (
               <div>
@@ -39,18 +42,6 @@ export default class App extends Component {
                 <MovieGridContainer />
               </div>
             )
-            // if(!this.props.user.id){
-            //   return (
-            //     <div>
-            //       <LogInContainer history={ this.props.history } />
-            //       <MovieGridContainer />
-            //     </div>
-            //   )
-            // } else {
-            //   return (
-            //     <MovieGridContainer />
-            //   )
-            // }
           }} />
 
       <Route exact path='/signup' component={ NewUserContainer }/>
