@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 export default class NewUser extends Component {
+  
   constructor(){
     super()
     this.state = {
@@ -13,9 +14,7 @@ export default class NewUser extends Component {
 
   createUser(e) {
     e.preventDefault();
-
     const { name, email, password } = this.state;
-
     fetch('http://localhost:3000/api/users/new', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,12 +26,10 @@ export default class NewUser extends Component {
           error: 'Email already exists'
         });
       } else {
-        this.props.history.push('/login')
+        this.props.history.push('/')
       }
     })
   }
-
-
 
   render(){
     return(
@@ -40,8 +37,9 @@ export default class NewUser extends Component {
          <input onChange={ (e) => this.setState({ name: e.target.value }) } type="text" name="name" />
          <input onChange={ (e) => this.setState({ email: e.target.value }) } type="text" name="email" />
          <input onChange={ (e) => this.setState({ password: e.target.value }) } type="password" name="password" />
-         <input onClick={(e) => this.createUser(e) } type="submit" name="submit" />
+         <input onClick={ (e) => this.createUser(e) } type="submit" name="submit" />
       </form>
     )
   }
+
 }

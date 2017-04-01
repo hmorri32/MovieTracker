@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
 import './MovieDetailcss';
+import { Link } from 'react-router-dom';
+
 
 
 export default class MovieDetail extends Component {
 
 
-  favButton() {
-    if(this.props.user.id) {
+  signUpButton() {
+    if(!this.props.user.id) {
       return (
-        <button onClick={ () => this.callFavApi() }>hey</button>
+        <div>
+          hey, sign up!
+          <Link to="/signup"><button> Sign Up </button></Link>
+        </div>
       )
     }
   }
 
 
   callFavApi(e) {
-    const movie = this.findMovie()[0]
-
-    e.preventDefault()
-
-    fetch('http://localhost:3000/api/users/favorites/new', {
-      method: 'POST',
-      headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify({
-        movie_id: movie.id,
-        user_id: this.props.user.id,
-        title: movie.title,
-        poster_path: movie.poster_path,
-        release_date: movie.release_date,
-        vote_average: movie.vote_average,
-        overview: movie.overview
+    if (!this.props.user.name) {
+      console.log(this);
+    } else {
+      const movie = this.findMovie()[0]
+      e.preventDefault()
+      fetch('http://localhost:3000/api/users/favorites/new', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({
+          movie_id: movie.id,
+          user_id: this.props.user.id,
+          title: movie.title,
+          poster_path: movie.poster_path,
+          release_date: movie.release_date,
+          vote_average: movie.vote_average,
+          overview: movie.overview
+        })
       })
-    })
-    .then(response => {
-      response.json().then(fav => this.props.addMovieToFavorites(fav))
-    })
+      .then(response => {
+          response.json().then(fav => this.props.addMovieToFavorites(fav))
+        })
+    }
   }
 
   findMovie() {
@@ -50,7 +57,8 @@ export default class MovieDetail extends Component {
           <p className="description">{ movie.overview }</p>
           <p className="vote">{ movie.vote_average }</p>
           <div>
-            <button onClick={ (e) => this.callFavApi(e) }>hey</button>
+            <button className="favorites" onClick={ (e) => this.callFavApi(e) }>hey</button>
+            { this.signUpButton() }
           </div>
         </div>
       </div>

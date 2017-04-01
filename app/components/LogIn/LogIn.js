@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { Link } from 'react-router-dom';
 
 
@@ -47,12 +46,10 @@ class LogIn extends Component {
     })
   }
 
-  render() {
+  welcomeUser(){
+    if(!this.props.user.name) {
     return (
-      <div>
-        {!this.props.user.data ? null : <p>Welcome: {this.props.user.data.name}</p>}
         <form>
-          
           <input
             type='email'
             name='email'
@@ -66,9 +63,25 @@ class LogIn extends Component {
             onChange={(e) => this.setState({ password: e.target.value })}
             ></input>
           <button onClick={ (e) => this.signIn(e) }>Log In</button>
-          <button onClick={ (e) => this.signOut(e) }> Log Out </button>
           <Link to="/signup"><button> Sign Up</button></Link>
         </form>
+      )
+    }
+    if (this.props.user.name) {
+      return (
+        <div>
+          <p>Welcome {this.props.user.name}</p>
+          <button onClick={ (e) => this.signOut(e) }> Log Out </button>
+        </div>
+      )
+    }
+
+  }
+
+  render() {
+    return (
+      <div>
+        { this.welcomeUser() }
       </div>
     )
   }
