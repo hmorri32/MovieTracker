@@ -31,7 +31,7 @@ class LogIn extends Component {
       }
       else {
         response.json().then(user => logIn(user.data))
-        this.props.history.push('/home')
+        this.props.history.push('/')
       }
     })
   }
