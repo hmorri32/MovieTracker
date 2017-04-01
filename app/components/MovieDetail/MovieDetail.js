@@ -44,7 +44,7 @@ export default class MovieDetail extends Component {
             <button className='favorite-button'disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
             {!this.props.user.name ? <div>
               <p className='sign-in-please'>
-                (in order to sweet functionality you must be signed in.)
+                (in order to use this sweet functionality you must be signed in.)
               </p>
               <Link className='sign-in-please'to='/signup'>Link To Signup Page</Link>
             </div> : null}
