@@ -31,7 +31,7 @@ class LogIn extends Component {
       }
       else {
         response.json().then(user => logIn(user.data))
-        this.props.history.push('/home')
+        this.props.history.push('/')
       }
     })
   }
@@ -51,6 +51,7 @@ class LogIn extends Component {
       <div>
         {!this.props.user.data ? null : <p>Welcome: {this.props.user.data.name}</p>}
         <form>
+          
           <input
             type='email'
             name='email'

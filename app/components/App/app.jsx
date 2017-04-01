@@ -26,20 +26,31 @@ export default class App extends Component {
 
     return (
       <div>
+
         <Link
           className='movie-watcher-h1'
-          to='/home'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
+          to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
 
-
-        <Route exact path='/home' component={ MovieGridContainer } />
-
-        <Route exact path='/login' render={() => {
-          return (
-            <div>
-              <LogInContainer history={ this.props.history }/>
-            </div>
-          )
-        }}/>
+        <Route exact path='/' render={ () => {
+            return (
+              <div>
+                <LogInContainer history={ this.props.history } />
+                <MovieGridContainer />
+              </div>
+            )
+            // if(!this.props.user.id){
+            //   return (
+            //     <div>
+            //       <LogInContainer history={ this.props.history } />
+            //       <MovieGridContainer />
+            //     </div>
+            //   )
+            // } else {
+            //   return (
+            //     <MovieGridContainer />
+            //   )
+            // }
+          }} />
 
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/>
