@@ -4,10 +4,6 @@ import * as actions from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
 
 
-// const mapStateToProps = (state) => {
-//   return state;
-// }
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actions, dispatch)
 };

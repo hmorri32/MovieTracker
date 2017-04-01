@@ -3,37 +3,29 @@ import './MovieDetailcss';
 import { Link } from 'react-router-dom';
 
 
+
 export default class MovieDetail extends Component {
 
-  favButton() {
-    if(this.props.user.id) {
-      return (
-        <button onClick={ () => this.callFavApi() }>hey</button>
-      )
-    }
-  }
-
   callFavApi(e) {
-    const movie = this.findMovie()[0]
 
-    e.preventDefault()
-
-    fetch('http://localhost:3000/api/users/favorites/new', {
-      method: 'POST',
-      headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify({
-        movie_id: movie.id,
-        user_id: this.props.user.id,
-        title: movie.title,
-        poster_path: movie.poster_path,
-        release_date: movie.release_date,
-        vote_average: movie.vote_average,
-        overview: movie.overview
+      const movie = this.findMovie()[0]
+      e.preventDefault()
+      fetch('http://localhost:3000/api/users/favorites/new', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({
+          movie_id: movie.id,
+          user_id: this.props.user.id,
+          title: movie.title,
+          poster_path: movie.poster_path,
+          release_date: movie.release_date,
+          vote_average: movie.vote_average,
+          overview: movie.overview
+        })
       })
-    })
-    .then(response => {
-      response.json().then(fav => this.props.addMovieToFavorites(fav))
-    })
+      .then(response => {
+          response.json().then(fav => this.props.addMovieToFavorites(fav))
+        })
   }
 
   findMovie() {
@@ -49,7 +41,6 @@ export default class MovieDetail extends Component {
           <p className="description">{ movie.overview }</p>
           <p className="vote">{ movie.vote_average }</p>
           <div>
-
             <button className='favorite-button'disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
             {!this.props.user.name ? <div>
               <p className='sign-in-please'>
