@@ -53,7 +53,9 @@
   border: 2px gold solid;
 }
 
-.favorite-button:disabled {
+.favorites:disabled {
+  color: gray;
+  border: 2px gray solid;
   cursor: not-allowed;
 }
 
