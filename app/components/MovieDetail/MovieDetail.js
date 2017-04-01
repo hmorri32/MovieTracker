@@ -46,7 +46,7 @@ export default class MovieDetail extends Component {
               <p className='sign-in-please'>
                 (in order to use this sweet functionality you must be signed in.)
               </p>
-              <Link className='sign-in-please' to='/signup'>Link To Signup Page</Link>
+              <Link className='sign-in-please' to='/login'>Link To Signup Page</Link>
             </div> : null}
           </div>
         </div>
