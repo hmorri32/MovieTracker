@@ -36,9 +36,14 @@ class LogIn extends Component {
     })
   }
 
-  handleClick(e) {
+  signOut(e) {
     e.preventDefault()
     this.props.logOut()
+    this.setState({
+      email: '',
+      password: '',
+      error: ''
+    })
   }
 
   render() {
@@ -59,7 +64,7 @@ class LogIn extends Component {
             onChange={(e) => this.setState({ password: e.target.value })}
             ></input>
           <button onClick={ (e) => this.signIn(e) }></button>
-          <button onClick={ (e) => this.handleClick(e) }> LOG OUT </button>
+          <button onClick={ (e) => this.signOut(e) }> LOG OUT </button>
         </form>
       </div>
     )

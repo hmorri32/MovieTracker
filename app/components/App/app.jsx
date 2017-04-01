@@ -30,9 +30,17 @@ export default class App extends Component {
           className='movie-watcher-h1'
           to='/home'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
 
-        <LogInContainer history={ this.props.history }/>
 
         <Route exact path='/home' component={ MovieGridContainer } />
+
+        <Route exact path='/login' render={() => {
+          return (
+            <div>
+              <LogInContainer history={ this.props.history }/>
+            </div>
+          )
+        }}/>
+
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/>
         } />
