@@ -9,12 +9,13 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
   /******** router ********/
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
   /******** files ********/
 import { movies, user } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
+import LogInContainer from './components/LogIn/LogInContainer';
 import './assets/styles/normalize.css';
 
 const history = createHistory()
@@ -32,7 +33,13 @@ const store = createStore(root, devTools, applyMiddleware(middleware))
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={ history } >
-      <Route path='/' component={ AppContainer } />
+      <Route exact path='/' render={() => {
+         return store.user ? (
+          <Redirect to="/home" />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }} />
     </ConnectedRouter>
   </Provider>
 )
