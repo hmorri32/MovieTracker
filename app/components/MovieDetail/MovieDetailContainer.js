@@ -1,8 +1,14 @@
 import MovieDetail from './MovieDetail';
 import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux'
+import * as actions from '../../actions/actions.js';
 
 const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps, null)(MovieDetail)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail)

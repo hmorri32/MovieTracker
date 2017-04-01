@@ -6,8 +6,8 @@ class LogIn extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: 'tman2272@aol.com',
+      password: 'password',
       error: ''
     }
   }
@@ -30,7 +30,7 @@ class LogIn extends Component {
         });
       }
       else {
-        response.json().then(user => logIn(user))
+        response.json().then(user => logIn(user.data))
         this.props.history.push('/home')
       }
     })
