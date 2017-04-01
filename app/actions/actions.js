@@ -18,3 +18,19 @@ export const logOut = () => {
     user: ''
   }
 };
+
+export const addMovieToFavorites = (movie) => {
+  return {
+    type: 'ADD_MOVIE_TO_FAVORITES',
+    movie
+  }
+};
+
+
+
+
+
+
+
+
+

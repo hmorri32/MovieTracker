@@ -2,8 +2,24 @@ import React, { Component } from 'react';
 import './MovieDetailcss';
 
 
-
 export default class MovieDetail extends Component {
+
+
+  favButton() {
+    if(this.props.user.id) {
+      return (
+        <button onClick={ () => this.callFavApi() }>hey</button>
+      )
+    }
+  }
+
+
+  callFavApi(e) {
+    e.preventDefault()
+    fetch('http://localhost:3000/users/favorites/new')
+    .then(response =>  console.log(response));
+  }
+
 
   findMovie() {
     return this.props.movies.filter((movie) => movie.id === parseInt(this.props.match.params.id))
@@ -17,7 +33,9 @@ export default class MovieDetail extends Component {
           <p className="title">{ movie.title }</p>
           <p className="description">{ movie.overview }</p>
           <p className="vote">{ movie.vote_average }</p>
-          <button className="favorites">Add to Favorites</button>
+          <div>
+            <button onClick={ (e) => this.callFavApi(e) }>hey</button>
+          </div>
         </div>
       </div>
     )

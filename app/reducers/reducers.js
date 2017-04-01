@@ -18,3 +18,12 @@ export const user = (state = [], action) => {
       return state;
   }
 };
+
+export const favorites = (state=[], action) => {
+  switch(action.type) {
+    case 'ADD_MOVIE_TO_FAVORITES':
+      return [...state, action.movie]
+    default:
+      return state
+  }
+};
