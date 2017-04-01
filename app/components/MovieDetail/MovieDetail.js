@@ -6,23 +6,8 @@ import { Link } from 'react-router-dom';
 
 export default class MovieDetail extends Component {
 
-
-  signUpButton() {
-    if(!this.props.user.id) {
-      return (
-        <div>
-          hey, sign up!
-          <Link to="/signup"><button> Sign Up </button></Link>
-        </div>
-      )
-    }
-  }
-
-
   callFavApi(e) {
-    if (!this.props.user.name) {
-      console.log(this);
-    } else {
+
       const movie = this.findMovie()[0]
       e.preventDefault()
       fetch('http://localhost:3000/api/users/favorites/new', {
@@ -41,7 +26,6 @@ export default class MovieDetail extends Component {
       .then(response => {
           response.json().then(fav => this.props.addMovieToFavorites(fav))
         })
-    }
   }
 
   findMovie() {
@@ -57,8 +41,13 @@ export default class MovieDetail extends Component {
           <p className="description">{ movie.overview }</p>
           <p className="vote">{ movie.vote_average }</p>
           <div>
-            <button className="favorites" onClick={ (e) => this.callFavApi(e) }>hey</button>
-            { this.signUpButton() }
+            <button className='favorite-button'disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
+            {!this.props.user.name ? <div>
+              <p className='sign-in-please'>
+                (in order to sweet functionality you must be signed in.)
+              </p>
+              <Link className='sign-in-please'to='/signup'>Link To Signup Page</Link>
+            </div> : null}
           </div>
         </div>
       </div>

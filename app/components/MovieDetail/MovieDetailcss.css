@@ -52,3 +52,12 @@
   color: gold;
   border: 2px gold solid;
 }
+
+.favorite-button:disabled {
+  cursor: not-allowed;
+}
+
+.sign-in-please {
+  text-decoration: none;
+  color: red;
+}
