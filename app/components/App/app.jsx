@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MovieGridContainer from '../MovieGrid/MovieGridContainer';
+import NewUserContainer from '../NewUsers/NewUserContainer';
 import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 
 import LogInContainer from '../LogIn/LogInContainer.js';
@@ -51,6 +52,8 @@ export default class App extends Component {
             //   )
             // }
           }} />
+
+      <Route exact path='/signup' component={ NewUserContainer }/>
 
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/>

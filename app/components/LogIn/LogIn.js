@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { Link } from 'react-router-dom';
 
 
@@ -64,8 +65,9 @@ class LogIn extends Component {
             value={this.state.password}
             onChange={(e) => this.setState({ password: e.target.value })}
             ></input>
-          <button onClick={ (e) => this.signIn(e) }></button>
-          <button onClick={ (e) => this.signOut(e) }> LOG OUT </button>
+          <button onClick={ (e) => this.signIn(e) }>Log In</button>
+          <button onClick={ (e) => this.signOut(e) }> Log Out </button>
+          <Link to="/signup"><button> Sign Up</button></Link>
         </form>
       </div>
     )
