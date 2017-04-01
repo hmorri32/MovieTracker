@@ -1,6 +1,6 @@
-/*body {
+body {
   background-color: black;
-}*/
+}
 
 .movie-card{
   background-repeat: no-repeat;
@@ -14,4 +14,3 @@
 .movie-card:hover {
   cursor: pointer;
 }
-
