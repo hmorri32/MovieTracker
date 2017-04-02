@@ -37,7 +37,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <header>
+        <header className='header-wrap'>
           <Link
             className='movie-watcher-h1'
             to='/'><h1>Movie <span className='movie-watcher-span'>Watcher</span></h1></Link>
@@ -47,7 +47,7 @@ export default class App extends Component {
             to='/login'><h2>Sign In</h2></Link>
 
             { this.renderLoginConditionally() }
-            
+
         </header>
         <Route exact path='/' render={ () => {
             return (
