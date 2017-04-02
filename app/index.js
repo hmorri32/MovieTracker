@@ -15,6 +15,12 @@ import { Route } from 'react-router-dom';
 import { movies, user, favorites } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
+
+  /******** css ********/
+import './components/MovieDetail/MovieDetailcss';
+import './components/Movie/moviecss';
+import './components/MovieGrid/movieGridcss';
+import './components/NewUsers/NewUserscss';
 import './assets/styles/normalize.css';
 
 const history = createHistory()

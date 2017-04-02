@@ -7,7 +7,7 @@ import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 
 import LogInContainer from '../LogIn/LogInContainer.js';
 
-import './appcss'
+// import './appcss'
 
 export default class App extends Component {
   constructor() {
@@ -24,6 +24,7 @@ export default class App extends Component {
   }
 
   renderLoginConditionally() {
+
     if(this.props.user.name){
       return (
         <div>
@@ -47,7 +48,7 @@ export default class App extends Component {
             to='/login'><h2>Sign In</h2></Link>
 
             { this.renderLoginConditionally() }
-            
+
         </header>
         <Route exact path='/' render={ () => {
             return (
