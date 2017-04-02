@@ -1,5 +1,4 @@
 
-
 .movie-div{
   max-width: 93%;
   margin: auto;
@@ -61,5 +60,6 @@
 
 .sign-in-please {
   text-decoration: none;
+  margin: none;
   color: red;
 }
