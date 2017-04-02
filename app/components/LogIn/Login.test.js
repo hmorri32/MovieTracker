@@ -16,15 +16,15 @@ const mockUser ={
 }
 
 const wrapper = shallow(
-  <LogIn signIn={jest.fn()} user={mockUser}/>
+  <LogIn signIn={jest.fn()} user={mockUser} signOut={jest.fn()}/>
 )
 
-  it('displays error', async(done) => {
+  it('displays error', async () => {
 
-    fetchMock.post('https://api.themoviedb.org/3/movie/now_playing?api_key=e918cc56cafd311d7955d426f4da1685&language=en-US&page=1', { status: 500, body: {} })
+    fetchMock.post('http://localhost:3000/api/users', { status: 500, body: {} })
 
     const emailInput = wrapper.find('input[name="email"]');
-    const submitBtn = wrapper.find('button');
+    const submitBtn = wrapper.find('#signin-btn');
 
     emailInput.simulate('change', {
       target: {
@@ -39,11 +39,9 @@ const wrapper = shallow(
      await wrapper.update();
 
 
-    let expectedErrorMessage = 'invalid credentials';
+    let expectedErrorMessage = 'Email and Password do not match';
 
     expect(wrapper.state().error).toEqual(expectedErrorMessage);
-
-    done();
 
   })
 })
