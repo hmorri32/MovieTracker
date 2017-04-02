@@ -1,5 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import * as actions from './actions';
+import mockMovies from '../helpers/newMoviesStub.json';
 
 const store = configureMockStore()();
 
@@ -36,7 +37,36 @@ describe('LogIn actions', () => {
     store.dispatch(actions.logOut());
     let createdActions = store.getActions();
 
-console.log(createdActions);
+    expect(createdActions.length).toEqual(1)
+    expect(createdActions[0]).toEqual(expectedAction)
+  })
+
+  it.only('creates ADD_MOVIES when initiating the logOut action', () => {
+
+    let expectedAction = { type: 'ADD_MOVIES', movie: mockMovies}
+
+    store.dispatch(actions.addMovies(mockMovies));
+    let createdActions = store.getActions();
+
+    expect(createdActions.length).toEqual(1)
+    expect(createdActions[0]).toEqual(expectedAction)
+  })
+
+  it.only('creates ADD_MOVIE_TO_FAVORITES when initiating the addMovieToFavoties action', () => {
+
+    const mockFav = {
+      body: {
+        status:"success",
+        message:"Movie was added to favorites",
+        id:1
+      }
+    }
+
+    let expectedAction = { type: 'ADD_MOVIE_TO_FAVORITES', movie: mockFav}
+
+    store.dispatch(actions.addMovieToFavorites(mockFav));
+    let createdActions = store.getActions();
+
     expect(createdActions.length).toEqual(1)
     expect(createdActions[0]).toEqual(expectedAction)
   })
