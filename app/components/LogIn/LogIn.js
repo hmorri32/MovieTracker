@@ -15,7 +15,7 @@ class LogIn extends Component {
 
   signIn(e) {
     e.preventDefault()
-
+    console.log('signin');
     const { logIn } = this.props
     const { email, password } = this.state;
 
@@ -26,6 +26,7 @@ class LogIn extends Component {
     })
     .then(response => {
       if(!response.ok) {
+        console.log('signIn');
         this.setState({
           error: 'Email and Password do not match'
         });
@@ -40,19 +41,22 @@ class LogIn extends Component {
   signOut(e) {
     e.preventDefault()
     this.props.logOut()
+    console.log('signOut');
     this.setState({
       email: '',
       password: '',
       error: ''
     })
+    console.log('signOut2');
   }
 
   welcomeUser(){
     if(!this.props.user.name) {
+      console.log('welcomeUser');
     return (
       <div className='login-page'>
         <div className='form'>
-          <form className='login-form'>
+          <div className='login-form'>
             <input
               type='text'
               name='email'
@@ -69,13 +73,14 @@ class LogIn extends Component {
               />
             <button onClick={ (e) => this.signIn(e) }>Log In</button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
-          </form>
+          </div>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
         </div>
       </div>
       )
     }
     if (this.props.user.name) {
+      console.log('welcomeTrue');
       return (
         <div>
           <p>Welcome {this.props.user.name}</p>
