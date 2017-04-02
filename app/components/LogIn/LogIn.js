@@ -13,8 +13,9 @@ class LogIn extends Component {
     }
   }
 
-  signIn(e) {
-    e.preventDefault()
+  signIn() {
+    console.log("before default");
+    // e.preventDefault()
     console.log('signin');
     const { logIn } = this.props
     const { email, password } = this.state;
@@ -41,8 +42,8 @@ class LogIn extends Component {
     })
   }
 
-  signOut(e) {
-    e.preventDefault()
+  signOut() {
+    // e.preventDefault()
     this.props.logOut()
     console.log('signOut');
     this.setState({
@@ -74,7 +75,7 @@ class LogIn extends Component {
               value={this.state.password}
               onChange={(e) => this.setState({ password: e.target.value })}
               />
-            <button onClick={ (e) => this.signIn(e) }>Log In</button>
+            <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
           </div>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
@@ -87,7 +88,7 @@ class LogIn extends Component {
       return (
         <div>
           <p>Welcome {this.props.user.name}</p>
-          <button onClick={ (e) => this.signOut(e) }> Log Out </button>
+          <button onClick={ () => this.signOut() }> Log Out </button>
         </div>
       )
     }
