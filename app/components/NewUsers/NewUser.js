@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import './NewUserscss'
 
 export default class NewUser extends Component {
-
   constructor(){
     super()
     this.state = {
@@ -15,13 +13,15 @@ export default class NewUser extends Component {
   }
 
   validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    const checkIt = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return checkIt.test(email);
   }
 
   createUser(e) {
     e.preventDefault();
+
     const { name, email, password } = this.state;
+
     if (!this.validateEmail(email)){
       this.setState({
         error: 'Not a valid email'

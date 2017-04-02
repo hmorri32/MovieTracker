@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link }             from 'react-router-dom';
 import './Logincss'
 
 
@@ -59,17 +59,16 @@ class LogIn extends Component {
               placeholder='username'
               value={ this.state.email }
               onChange={ (e) => this.setState({ email: e.target.value }) }
-              ></input>
+              />
             <input
               type='password'
               name='password'
               placeholder='password'
               value={this.state.password}
               onChange={(e) => this.setState({ password: e.target.value })}
-              ></input>
+              />
             <button onClick={ (e) => this.signIn(e) }>Log In</button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
-
           </form>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
         </div>
