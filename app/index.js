@@ -12,12 +12,12 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
   /******** files ********/
-import { movies, user, favorites } from './reducers/reducers';
+import { movies, user, favorites, userFavorites } from './reducers/reducers';
 import AppContainer from './components/App/AppContainer';
 import MovieDetailContainer from './components/MovieDetail/MovieDetailContainer';
 import './assets/styles/normalize.css';
 
-const history = createHistory()
+const history    = createHistory()
 const middleware = routerMiddleware(history)
 const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
@@ -25,13 +25,14 @@ const root = combineReducers({
   movies,
   user,
   favorites,
+  userFavorites,
   router: routerReducer
 })
 
 const store = createStore(root, devTools, applyMiddleware(middleware))
 
 const router = (
-  <Provider store={store}>
+  <Provider store={ store }>
     <ConnectedRouter history={ history } >
       <Route path='/' component={ AppContainer } />
     </ConnectedRouter>
