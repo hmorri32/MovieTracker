@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import Movie from '../Movie/Movie';
+
 
 export default class FavoritesGrid extends Component {
-
 
   componentDidMount() {
     if(this.props.user !== undefined) {
@@ -14,10 +17,24 @@ export default class FavoritesGrid extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearMovies()
+  }
+
   render() {
     return(
-      <div>
-        suh dude.
+      <div className="movie-grid">
+        {this.props.userFavorites.map((movie, i) => {
+          return (
+            <Link to={`/favorites/${movie.id}`} className='movie-card'>
+              <div
+                className="movie-card"
+                key={ i }
+                style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})` } }>
+              </div>
+            </Link>
+          )
+       })}
       </div>
     )
   }

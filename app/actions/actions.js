@@ -33,6 +33,13 @@ export const retrieveFavoriteMovies = (movie) => {
   }
 };
 
+export const clearMovies = () => {
+  return {
+    type: 'CLEAR_FAVORITE_MOVIES',
+    movie: []
+  }
+}
+
 
 
 

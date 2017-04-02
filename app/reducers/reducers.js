@@ -31,6 +31,8 @@ export const userFavorites = (state=[], action) => {
   switch(action.type) {
     case 'RETRIVE_FAVORITE_MOVIES':
       return [...state, ...action.movie]
+    case 'CLEAR_FAVORITE_MOVIES':
+      return action.movie
     default:
       return state
   }
