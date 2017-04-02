@@ -1,6 +1,10 @@
+.header-wrap {
+  text-align: center;
+}
 
 .movie-watcher-h1 {
   text-decoration: none;
+  align-self: center;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
   text-align: center;
@@ -11,3 +15,8 @@
 color: white;
 }
 
+
+.sign-in {
+  text-decoration: none;
+  color: red;
+}

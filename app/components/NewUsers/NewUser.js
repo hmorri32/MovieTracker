@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './NewUserscss'
 
 export default class NewUser extends Component {
-  
   constructor(){
     super()
     this.state = {
@@ -12,9 +12,22 @@ export default class NewUser extends Component {
     }
   }
 
+  validateEmail(email) {
+    const checkIt = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return checkIt.test(email);
+  }
+
   createUser(e) {
     e.preventDefault();
+
     const { name, email, password } = this.state;
+
+    if (!this.validateEmail(email)){
+      this.setState({
+        error: 'Not a valid email'
+      })
+      return
+    }
     fetch('http://localhost:3000/api/users/new', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -23,23 +36,45 @@ export default class NewUser extends Component {
     .then(response => {
       if(!response.ok) {
         this.setState({
-          error: 'Email already exists'
+          error: 'Email has already been used'
         });
       } else {
-        this.props.history.push('/')
+        this.props.history.push('/login')
       }
     })
   }
 
-  render(){
+  render() {
     return(
-      <form>
-         <input onChange={ (e) => this.setState({ name: e.target.value }) } type="text" name="name" />
-         <input onChange={ (e) => this.setState({ email: e.target.value }) } type="text" name="email" />
-         <input onChange={ (e) => this.setState({ password: e.target.value }) } type="password" name="password" />
-         <input onClick={ (e) => this.createUser(e) } type="submit" name="submit" />
-      </form>
+      <div className='login-page'>
+        <div className='form'>
+          <form>
+            <input
+              type="text"
+              name="name"
+              placeholder='name'
+              onChange={ (e) => this.setState({ name: e.target.value }) }
+              />
+            <input
+              type="text"
+              name="email"
+              placeholder='email'
+              onChange={ (e) => this.setState({ email: e.target.value }) }
+              />
+            <input
+              type="password"
+              name="password"
+              placeholder='password'
+              onChange={ (e) => this.setState({ password: e.target.value }) }
+              />
+              <button
+                name="submit"
+                onClick={ (e) => this.createUser(e) } > Submit
+              </button>
+          </form>
+          { this.state.error && <h2 className='error'>{this.state.error}</h2>}
+        </div>
+      </div>
     )
   }
-
 }
