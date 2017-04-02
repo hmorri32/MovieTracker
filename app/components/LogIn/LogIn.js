@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
-// import './Logincss'
 
 
 class LogIn extends Component {
@@ -15,7 +14,6 @@ class LogIn extends Component {
 
   signIn() {
     console.log("before default");
-    // e.preventDefault()
     console.log('signin');
     const { logIn } = this.props
     const { email, password } = this.state;
@@ -43,7 +41,6 @@ class LogIn extends Component {
   }
 
   signOut() {
-    // e.preventDefault()
     this.props.logOut()
     console.log('signOut');
     this.setState({
