@@ -26,7 +26,7 @@ class LogIn extends Component {
     .then(response => {
       if(!response.ok) {
         this.setState({
-          error: 'invalid credentials'
+          error: 'Email and Password do not match'
         });
       }
       else {
@@ -49,6 +49,7 @@ class LogIn extends Component {
   welcomeUser(){
     if(!this.props.user.name) {
     return (
+      <div>
         <form>
           <input
             type='email'
@@ -65,6 +66,8 @@ class LogIn extends Component {
           <button onClick={ (e) => this.signIn(e) }>Log In</button>
           <Link to="/signup"><button> Sign Up</button></Link>
         </form>
+        { this.state.error && <h2>{this.state.error}</h2>}
+      </div>
       )
     }
     if (this.props.user.name) {
