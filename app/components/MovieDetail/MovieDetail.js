@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MovieDetailcss';
+// import './MovieDetailcss';
 import { Link } from 'react-router-dom';
 
 export default class MovieDetail extends Component {

@@ -1,3 +1,4 @@
+
 import React, { Component }   from 'react';
 import { Route }              from 'react-router-dom';
 import { Link }               from 'react-router-dom';
@@ -7,7 +8,8 @@ import NewUserContainer       from '../NewUsers/NewUserContainer';
 import MovieDetailContainer   from '../MovieDetail/MovieDetailContainer';
 import LogInContainer         from '../LogIn/LogInContainer.js';
 import FavoritesGridContainer from '../FavoritesGrid/FavoritesGridContainer.js';
-import './appcss'
+
+
 
 
 export default class App extends Component {
@@ -22,6 +24,7 @@ export default class App extends Component {
   }
 
   renderLoginConditionally() {
+
     if(this.props.user.name){
       return (
         <div>

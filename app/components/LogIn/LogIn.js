@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
-import './Logincss'
 
 
 class LogIn extends Component {
@@ -13,9 +12,7 @@ class LogIn extends Component {
     }
   }
 
-  signIn(e) {
-    e.preventDefault()
-
+  signIn() {
     const { logIn } = this.props
     const { email, password } = this.state;
 
@@ -29,16 +26,16 @@ class LogIn extends Component {
         this.setState({
           error: 'Email and Password do not match'
         });
-      }
-      else {
-        response.json().then(user => logIn(user.data))
+      } else {
+        response.json().then((user) => {
+          logIn(user.data);
+        })
         this.props.history.push('/')
       }
     })
   }
 
-  signOut(e) {
-    e.preventDefault()
+  signOut() {
     this.props.logOut()
     this.setState({
       email: '',
@@ -52,7 +49,7 @@ class LogIn extends Component {
     return (
       <div className='login-page'>
         <div className='form'>
-          <form className='login-form'>
+          <div className='login-form'>
             <input
               type='text'
               name='email'
@@ -67,9 +64,9 @@ class LogIn extends Component {
               value={this.state.password}
               onChange={(e) => this.setState({ password: e.target.value })}
               />
-            <button onClick={ (e) => this.signIn(e) }>Log In</button>
+            <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
-          </form>
+          </div>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
         </div>
       </div>
@@ -79,7 +76,7 @@ class LogIn extends Component {
       return (
         <div>
           <p>Welcome {this.props.user.name}</p>
-          <button onClick={ (e) => this.signOut(e) }> Log Out </button>
+          <button onClick={ () => this.signOut() }> Log Out </button>
         </div>
       )
     }
