@@ -6,7 +6,7 @@ import MovieGridContainer   from '../MovieGrid/MovieGridContainer';
 import NewUserContainer     from '../NewUsers/NewUserContainer';
 import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 import LogInContainer       from '../LogIn/LogInContainer.js';
-import './appcss'
+// import './appcss'
 
 
 

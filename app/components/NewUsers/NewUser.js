@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewUserscss'
+// import './NewUserscss'
 
 export default class NewUser extends Component {
   constructor(){

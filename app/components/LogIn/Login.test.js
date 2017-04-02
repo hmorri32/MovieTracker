@@ -5,7 +5,7 @@ import LogIn from './LogIn';
 
 
 
-describe('', () => {
+describe('LogIn Component', () => {
 const mockUser ={
   user: {
     id: 1,
@@ -27,6 +27,7 @@ const wrapper = shallow(
 
     emailInput.simulate('change', {
       target: {
+        name: 'email',
         value: 'buttz'
       }
     })
