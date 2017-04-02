@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './NewUserscss'
 
 export default class NewUser extends Component {
-
   constructor(){
     super()
     this.state = {
@@ -13,13 +13,15 @@ export default class NewUser extends Component {
   }
 
   validateEmail(email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+    const checkIt = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return checkIt.test(email);
   }
 
   createUser(e) {
     e.preventDefault();
+
     const { name, email, password } = this.state;
+
     if (!this.validateEmail(email)){
       this.setState({
         error: 'Not a valid email'
@@ -37,23 +39,42 @@ export default class NewUser extends Component {
           error: 'Email has already been used'
         });
       } else {
-        this.props.history.push('/')
+        this.props.history.push('/login')
       }
     })
   }
 
   render() {
     return(
-      <div>
-      <form>
-         <input onChange={ (e) => this.setState({ name: e.target.value }) } type="text" name="name" />
-         <input onChange={ (e) => this.setState({ email: e.target.value }) } type="text" name="email" />
-         <input onChange={ (e) => this.setState({ password: e.target.value }) } type="password" name="password" />
-         <input onClick={ (e) => this.createUser(e) } type="submit" name="submit" />
-      </form>
-      { this.state.error && <h2>{this.state.error}</h2>}
-    </div>
+      <div className='login-page'>
+        <div className='form'>
+          <form>
+            <input
+              type="text"
+              name="name"
+              placeholder='name'
+              onChange={ (e) => this.setState({ name: e.target.value }) }
+              />
+            <input
+              type="text"
+              name="email"
+              placeholder='email'
+              onChange={ (e) => this.setState({ email: e.target.value }) }
+              />
+            <input
+              type="password"
+              name="password"
+              placeholder='password'
+              onChange={ (e) => this.setState({ password: e.target.value }) }
+              />
+              <button
+                name="submit"
+                onClick={ (e) => this.createUser(e) } > Submit
+              </button>
+          </form>
+          { this.state.error && <h2 className='error'>{this.state.error}</h2>}
+        </div>
+      </div>
     )
   }
-
 }

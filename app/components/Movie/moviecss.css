@@ -14,7 +14,3 @@ body {
 .movie-card:hover {
   cursor: pointer;
 }
-
-h2 {
-  color: white;
-}
