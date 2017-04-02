@@ -26,13 +26,16 @@ class LogIn extends Component {
     })
     .then(response => {
       if(!response.ok) {
-        console.log('signIn');
+        console.log('signInFalse');
         this.setState({
           error: 'Email and Password do not match'
         });
-      }
-      else {
-        response.json().then(user => logIn(user.data))
+      } else {
+        console.log('signInTrue');
+        response.json().then((user) => {
+          console.log("inside response.json");
+          logIn(user.data);
+        })
         this.props.history.push('/')
       }
     })
@@ -52,7 +55,7 @@ class LogIn extends Component {
 
   welcomeUser(){
     if(!this.props.user.name) {
-      console.log('welcomeUser');
+      console.log('welcomeUserFalse');
     return (
       <div className='login-page'>
         <div className='form'>
