@@ -49,7 +49,6 @@ describe('LogIn Component', () => {
   })
 
   it('should route to home when a login is successful', async() => {
-    console.log(history());
     spyOn(history(), 'push')
 
     fetchMock.post('http://localhost:3000/api/users', {
@@ -80,8 +79,7 @@ describe('LogIn Component', () => {
 
     await wrapper.update()
 
-    expect(history().push).toHaveBeenCalledWith('/');
-
+    expect(history().push()).toHaveBeenCalledWith('/');
   })
 
 

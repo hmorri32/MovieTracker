@@ -13,8 +13,6 @@ class LogIn extends Component {
   }
 
   signIn() {
-    console.log("before default");
-    console.log('signin');
     const { logIn } = this.props
     const { email, password } = this.state;
 
@@ -25,14 +23,11 @@ class LogIn extends Component {
     })
     .then(response => {
       if(!response.ok) {
-        console.log('signInFalse');
         this.setState({
           error: 'Email and Password do not match'
         });
       } else {
-        console.log('signInTrue');
         response.json().then((user) => {
-          console.log("inside response.json");
           logIn(user.data);
         })
         this.props.history.push('/')
@@ -42,18 +37,15 @@ class LogIn extends Component {
 
   signOut() {
     this.props.logOut()
-    console.log('signOut');
     this.setState({
       email: '',
       password: '',
       error: ''
     })
-    console.log('signOut2');
   }
 
   welcomeUser(){
     if(!this.props.user.name) {
-      console.log('welcomeUserFalse');
     return (
       <div className='login-page'>
         <div className='form'>
@@ -81,7 +73,6 @@ class LogIn extends Component {
       )
     }
     if (this.props.user.name) {
-      console.log('welcomeTrue');
       return (
         <div>
           <p>Welcome {this.props.user.name}</p>

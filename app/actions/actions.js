@@ -26,6 +26,13 @@ export const addMovieToFavorites = (movie) => {
   }
 };
 
+export const retrieveFavoriteMovies = (movie) => {
+  return {
+    type: 'RETRIVE_FAVORITE_MOVIES',
+    movie
+  }
+};
+
 
 
 
