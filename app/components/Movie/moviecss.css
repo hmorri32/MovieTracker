@@ -1,5 +1,5 @@
 body {
-  background-color: pink;
+  background-color: black;
 }
 
 .movie-card{
@@ -13,8 +13,4 @@ body {
 
 .movie-card:hover {
   cursor: pointer;
-}
-
-h2 {
-  color: white;
 }

@@ -44,7 +44,7 @@ export default class App extends Component {
 
           <Link
             className='sign-in'
-            to='/login'><h2>Sign In</h2></Link>
+            to='/login'><h2>Log In</h2></Link>
 
             { this.renderLoginConditionally() }
 

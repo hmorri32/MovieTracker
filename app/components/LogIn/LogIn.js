@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import './Logincss'
 
 
 class LogIn extends Component {
@@ -49,24 +50,29 @@ class LogIn extends Component {
   welcomeUser(){
     if(!this.props.user.name) {
     return (
-      <div>
-        <form>
-          <input
-            type='email'
-            name='email'
-            value={ this.state.email }
-            onChange={ (e) => this.setState({ email: e.target.value }) }
-            ></input>
-          <input
-            type='password'
-            name='password'
-            value={this.state.password}
-            onChange={(e) => this.setState({ password: e.target.value })}
-            ></input>
-          <button onClick={ (e) => this.signIn(e) }>Log In</button>
-          <Link to="/signup"><button> Sign Up</button></Link>
-        </form>
-        { this.state.error && <h2>{this.state.error}</h2>}
+      <div className='login-page'>
+        <div className='form'>
+          <form className='login-form'>
+            <input
+              type='text'
+              name='email'
+              placeholder='username'
+              value={ this.state.email }
+              onChange={ (e) => this.setState({ email: e.target.value }) }
+              ></input>
+            <input
+              type='password'
+              name='password'
+              placeholder='password'
+              value={this.state.password}
+              onChange={(e) => this.setState({ password: e.target.value })}
+              ></input>
+            <button onClick={ (e) => this.signIn(e) }>Log In</button>
+            <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
+
+          </form>
+          { this.state.error && <h2 className='error'>{this.state.error}</h2>}
+        </div>
       </div>
       )
     }
@@ -78,7 +84,6 @@ class LogIn extends Component {
         </div>
       )
     }
-
   }
 
   render() {
