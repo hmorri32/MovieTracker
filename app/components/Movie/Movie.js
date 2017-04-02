@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router'
 import { Link } from 'react-router-dom';
-import './moviecss';
+// import './moviecss';
 
 const Movie = ({ title, poster, vote, id }) => {
   return (

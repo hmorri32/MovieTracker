@@ -6,7 +6,8 @@ import MovieGridContainer   from '../MovieGrid/MovieGridContainer';
 import NewUserContainer     from '../NewUsers/NewUserContainer';
 import MovieDetailContainer from '../MovieDetail/MovieDetailContainer';
 import LogInContainer       from '../LogIn/LogInContainer.js';
-import './appcss'
+// import './appcss'
+
 
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
   }
 
   renderLoginConditionally() {
+
     if(this.props.user.name){
       return (
         <div>
@@ -45,6 +47,7 @@ export default class App extends Component {
           { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : null }
 
           { this.renderLoginConditionally() }
+
         </header>
 
         <Route exact path='/' render={ () => <MovieGridContainer />}/>
