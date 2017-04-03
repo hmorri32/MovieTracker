@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default class MovieDetail extends Component {
 
-  callFavApi(e) {
+  callFavApi() {
     const movie = this.findMovie()[0]
-    e.preventDefault()
     fetch('http://localhost:3000/api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
@@ -33,9 +32,11 @@ export default class MovieDetail extends Component {
         <div className='info-div'>
           <p className="title">{ movie.title }</p>
           <p className="description">{ movie.overview }</p>
-          <p className="vote"><span className="detail-category">Rating:</span> { movie.vote_average }</p>
+          <p className="vote">
+            <span className="detail-category">Rating:</span> { movie.vote_average }
+          </p>
           <div className='favorite-wrapper'>
-            <button className='favorites' disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
+            <button className='favorites' disabled={!this.props.user.name} onClick={ () => this.callFavApi() }>Favorite</button>
             { !this.props.user.name ? <div className="alert-div">
               <p className='sign-in-please'>
                 (in order to use this sweet functionality you must be signed in.)
