@@ -4,19 +4,16 @@ import React, { Component } from 'react';
 export default class FavoritesDetail extends Component {
 
   findMovie() {
-    return this.props.userFavorites.filter(movie => movie.id === parseInt(this.props.match.params.id))
+    return this.props.userFavorites.filter(movie => parseInt(this.props.match.params.movieid) === movie.movie_id)
   }
 
   render(){
-    const movie = this.findMovie()
-    console.log(movie);
+    const movie2 = this.findMovie()[0]
     return(
-      <div className="movie-div" style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.backdrop_path})` } }>
-        <div className='info-div'>
-          <p className="title">{ movie.title }</p>
-          <p className="description">{ movie.overview }</p>
-          <p className="vote">{ movie.vote_average }</p>
-        </div>
+      <div className="movie-detail" style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie2.poster_path})` } }>
+          <p className="title">{ movie2.title }</p>
+          <p className="description">{ movie2.overview }</p>
+          <p className="vote">{ movie2.vote_average }</p>
       </div>
     )
   }
