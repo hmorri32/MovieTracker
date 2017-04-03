@@ -1,5 +1,5 @@
 .header-wrap {
-  align-content: center;
+  text-align: center;
   position: relative;
 }
 
@@ -16,21 +16,31 @@
 color: white;
 }
 
+.sign-in {
+  font-family: 'Amatic SC', cursive;
 
-.sign-in,
-.sign-out {
+  text-decoration: none;
+  color: red;
   position: absolute;
   right: 55px;
   top: -13px;
-  background-color: transparent;
-  border: 2px red solid;
-  color: red;
-  font-family: 'Amatic SC', cursive;
-  align-self: center;
-  padding: 2px 14px;
-  font-size: 19px;
 }
 
-button:hover{
+.sign-in:hover {
+  color: white;
   cursor: pointer;
+}
+
+.favorites-link {
+  font-family: 'Amatic SC', cursive;
+  text-decoration: none;
+  color: red;
+  position: absolute;
+  left: 55px;
+  top: -13px;
+}
+
+.favorites-link:hover {
+  text-decoration: none;
+  color: white;
 }

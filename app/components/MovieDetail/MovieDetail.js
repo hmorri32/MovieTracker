@@ -33,14 +33,14 @@ export default class MovieDetail extends Component {
         <div className='info-div'>
           <p className="title">{ movie.title }</p>
           <p className="description">{ movie.overview }</p>
-          <p className="vote">{ movie.vote_average }</p>
+          <p className="vote"><span className="detail-category">Rating:</span> { movie.vote_average }</p>
           <div className='favorite-wrapper'>
             <button className='favorites' disabled={!this.props.user.name} onClick={ (e) => this.callFavApi(e) }>Favorite</button>
-            { !this.props.user.name ? <div>
+            { !this.props.user.name ? <div className="alert-div">
               <p className='sign-in-please'>
                 (in order to use this sweet functionality you must be signed in.)
               </p>
-              <Link className='sign-in-please' to='/login'>Link To Signup Page</Link>
+              <Link className='sign-in-please' to='/login'>Link To Log-in Page</Link>
             </div> : null }
           </div>
         </div>

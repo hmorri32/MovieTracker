@@ -64,7 +64,7 @@ class LogIn extends Component {
               value={this.state.password}
               onChange={(e) => this.setState({ password: e.target.value })}
               />
-            <button className="sign-in" id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
+            <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
           </div>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
