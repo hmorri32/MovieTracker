@@ -52,6 +52,7 @@ describe.skip('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 
+
   it('creates ADD_MOVIE_TO_FAVORITES when initiating the addMovieToFavorites action', () => {
 
     const mockFav = {
