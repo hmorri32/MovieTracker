@@ -1,15 +1,13 @@
+import React, { Component }     from 'react';
+import { Route }                from 'react-router-dom';
+import { Link }                 from 'react-router-dom';
 
-import React, { Component }   from 'react';
-import { Route }              from 'react-router-dom';
-import { Link }               from 'react-router-dom';
-
-import MovieGridContainer     from '../MovieGrid/MovieGridContainer';
-import NewUserContainer       from '../NewUsers/NewUserContainer';
-import MovieDetailContainer   from '../MovieDetail/MovieDetailContainer';
-import LogInContainer         from '../LogIn/LogInContainer.js';
-import FavoritesGridContainer from '../FavoritesGrid/FavoritesGridContainer.js';
+import MovieGridContainer       from '../MovieGrid/MovieGridContainer';
+import NewUserContainer         from '../NewUsers/NewUserContainer';
+import MovieDetailContainer     from '../MovieDetail/MovieDetailContainer';
+import LogInContainer           from '../LogIn/LogInContainer.js';
+import FavoritesGridContainer   from '../FavoritesGrid/FavoritesGridContainer.js';
 import FavoritesDetailContainer from '../FavoritesDetail/FavoritesDetailContainer.js';
-
 
 
 export default class App extends Component {
