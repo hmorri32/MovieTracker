@@ -64,7 +64,7 @@ class LogIn extends Component {
               />
             <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message"> Not registered?
-              <Link to="/signup">
+              <Link className="sign-up" to="/signup">
                 <button> Sign Up</button>
               </Link>
             </p>
