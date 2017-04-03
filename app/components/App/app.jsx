@@ -8,6 +8,8 @@ import NewUserContainer       from '../NewUsers/NewUserContainer';
 import MovieDetailContainer   from '../MovieDetail/MovieDetailContainer';
 import LogInContainer         from '../LogIn/LogInContainer.js';
 import FavoritesGridContainer from '../FavoritesGrid/FavoritesGridContainer.js';
+import FavoritesDetailContainer from '../FavoritesDetail/FavoritesDetailContainer.js';
+
 
 
 export default class App extends Component {
@@ -55,13 +57,10 @@ export default class App extends Component {
         <Route exact path='/login' render={ () => <LogInContainer history={ this.props.history } /> }/>
         <Route exact path='/movie/:id' render={({ match }) =>
           <MovieDetailContainer match={ match }/> }/>
-
+        <Route exact path='/:userid/favorites/:movieid' render={({ match }) =>
+          <FavoritesDetailContainer match = { match }/> }/>
         <Route exact path='/:id/favorites' component={ FavoritesGridContainer } />
       </div>
     )
   }
 }
-
-
-
-
