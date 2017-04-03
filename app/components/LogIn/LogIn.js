@@ -58,13 +58,12 @@ class LogIn extends Component {
                    value={ this.state.email }
                    onChange={ (e) => this.setState({ email: e.target.value }) }
               />
-            <input
-              type='password'
-              name='password'
-              placeholder='password'
-              value={ this.state.password }
-              onChange={ (e) => this.setState({ password: e.target.value }) }
-              />
+            <input type='password'
+                   name='password'
+                   placeholder='password'
+                   value={ this.state.password }
+                   onChange={ (e) => this.setState({ password: e.target.value }) }
+                  />
 
             <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message"> Not registered?
