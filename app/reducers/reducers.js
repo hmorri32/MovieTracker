@@ -7,7 +7,13 @@ export const movies = (state = [], action) => {
   }
 };
 
-export const user = (state = [], action) => {
+const initialUserState = {
+  email: '',
+  password: '',
+  error: ''
+};
+
+export const user = (state = initialUserState, action) => {
   switch(action.type){
     case 'LOG_IN':
       return action.user;
@@ -37,6 +43,3 @@ export const userFavorites = (state=[], action) => {
       return state
   }
 };
-
-
-

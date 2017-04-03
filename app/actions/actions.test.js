@@ -13,7 +13,7 @@ const mockUser = {
   }
 }
 
-describe.skip('LogIn actions', () => {
+describe('LogIn actions', () => {
 
   afterEach(() => {
     store.clearActions();
@@ -119,8 +119,3 @@ describe.skip('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 })
-
-
-
-
-
