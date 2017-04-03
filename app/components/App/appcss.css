@@ -13,10 +13,12 @@
 }
 
 .movie-watcher-span {
-color: white;
+  color: white;
 }
 
 .sign-in {
+  font-family: 'Amatic SC', cursive;
+
   text-decoration: none;
   color: red;
   position: absolute;
@@ -30,6 +32,15 @@ color: white;
 }
 
 .favorites-link {
+  font-family: 'Amatic SC', cursive;
   text-decoration: none;
   color: red;
+  position: absolute;
+  left: 55px;
+  top: -13px;
+}
+
+.favorites-link:hover {
+  text-decoration: none;
+  color: white;
 }

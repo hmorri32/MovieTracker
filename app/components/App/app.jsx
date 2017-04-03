@@ -1,15 +1,13 @@
+import React, { Component }     from 'react';
+import { Route }                from 'react-router-dom';
+import { Link }                 from 'react-router-dom';
 
-import React, { Component }   from 'react';
-import { Route }              from 'react-router-dom';
-import { Link }               from 'react-router-dom';
-
-import MovieGridContainer     from '../MovieGrid/MovieGridContainer';
-import NewUserContainer       from '../NewUsers/NewUserContainer';
-import MovieDetailContainer   from '../MovieDetail/MovieDetailContainer';
-import LogInContainer         from '../LogIn/LogInContainer.js';
-import FavoritesGridContainer from '../FavoritesGrid/FavoritesGridContainer.js';
+import MovieGridContainer       from '../MovieGrid/MovieGridContainer';
+import NewUserContainer         from '../NewUsers/NewUserContainer';
+import MovieDetailContainer     from '../MovieDetail/MovieDetailContainer';
+import LogInContainer           from '../LogIn/LogInContainer.js';
+import FavoritesGridContainer   from '../FavoritesGrid/FavoritesGridContainer.js';
 import FavoritesDetailContainer from '../FavoritesDetail/FavoritesDetailContainer.js';
-
 
 
 export default class App extends Component {
@@ -35,6 +33,7 @@ export default class App extends Component {
             <h1>Movie
               <span className='movie-watcher-span'>Watcher</span>
             </h1>
+            { this.props.user.name != undefined ? <h3>Welcome {this.props.user.name}</h3> : null  }
           </Link>
 
           { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : <h2 className='sign-in' onClick={ () => this.signOut() }> Log Out </h2> }
