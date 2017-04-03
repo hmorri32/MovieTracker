@@ -19,7 +19,7 @@ describe('LogIn actions', () => {
     store.clearActions();
   })
 
-  it.only('creates LOG_IN when initiating the logIn action', () => {
+  it('creates LOG_IN when initiating the logIn action', () => {
 
     let expectedAction = { type: 'LOG_IN', user: mockUser.data}
 
@@ -30,7 +30,7 @@ describe('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 
-  it.only('creates LOG_OUT when initiating the logOut action', () => {
+  it('creates LOG_OUT when initiating the logOut action', () => {
 
     let expectedAction = { type: 'LOG_OUT', user:''}
 
@@ -41,7 +41,7 @@ describe('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 
-  it.only('creates ADD_MOVIES when initiating the logOut action', () => {
+  it('creates ADD_MOVIES when initiating the logOut action', () => {
 
     let expectedAction = { type: 'ADD_MOVIES', movie: mockMovies}
 
@@ -52,7 +52,7 @@ describe('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 
-  it.only('creates ADD_MOVIE_TO_FAVORITES when initiating the addMovieToFavoties action', () => {
+  it('creates ADD_MOVIE_TO_FAVORITES when initiating the addMovieToFavoties action', () => {
 
     const mockFav = {
       body: {
