@@ -7,7 +7,7 @@ export default class MovieDetail extends Component {
   callFavApi(e) {
 
     const movie = this.findMovie()[0]
-    if(!movie) {
+    
       e.preventDefault()
       fetch('http://localhost:3000/api/users/favorites/new', {
         method: 'POST',
@@ -24,8 +24,8 @@ export default class MovieDetail extends Component {
       })
       .then(response => {
         response.json().then(fav => this.props.addMovieToFavorites(fav))
-      })  
-    }
+      })
+
   }
 
   findMovie() {

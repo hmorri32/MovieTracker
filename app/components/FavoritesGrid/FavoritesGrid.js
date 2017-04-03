@@ -11,8 +11,15 @@ export default class FavoritesGrid extends Component {
       fetch(`http://localhost:3000/api/users/${this.props.user.id}/favorites`)
       .then(response => response.json())
       .then((json) => {
-        let movieArray = json.data
-        this.props.retrieveFavoriteMovies(movieArray)
+        let movieArray = json.data;
+        let reduced = movieArray.reduce((arr, obj) => {
+          const duplicate = arr.find(stuff => obj.movie_id === stuff.movie_id)
+          if(!duplicate) {
+            arr.push(obj)
+          }
+          return arr
+        }, [])
+        this.props.retrieveFavoriteMovies(reduced)
       })
     }
   }
