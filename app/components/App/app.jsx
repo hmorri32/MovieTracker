@@ -20,7 +20,6 @@ export default class App extends Component {
     .then((json) => {
       let movies = json.results
       this.props.addMovies(movies)
-      console.log(movies);
     })
   }
 
