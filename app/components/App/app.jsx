@@ -26,6 +26,9 @@ export default class App extends Component {
   }
 
   render() {
+    const { name, id } = this.props.user
+    const { history } = this.props
+
     return (
       <div>
         <header className='header-wrap'>
@@ -33,22 +36,37 @@ export default class App extends Component {
             <h1>Movie
               <span className='movie-watcher-span'>Watcher</span>
             </h1>
-            { this.props.user.name != undefined ? <h3>Welcome {this.props.user.name}</h3> : null  }
+            { name != undefined ? <h3>Welcome { name }</h3> : null  }
           </Link>
 
-          { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : <h2 className='sign-in' onClick={ () => this.signOut() }> Log Out </h2> }
-          { this.props.user.name != undefined ? <Link className='favorites-link' to={`/${this.props.user.id}/favorites`}><h2>Favorites</h2></Link> : null }
+          { name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : <h2 className='sign-in' onClick={ () => this.signOut() }> Log Out </h2> }
+
+          { name != undefined ? <Link className='favorites-link' to={`/${id}/favorites`}><h2>Favorites</h2></Link> : null }
 
         </header>
 
-        <Route exact path='/' render={ () => <MovieGridContainer />}/>
-        <Route exact path='/signup' component={ NewUserContainer }/>
-        <Route exact path='/login' render={ () => <LogInContainer history={ this.props.history } /> }/>
-        <Route exact path='/movie/:id' render={({ match }) =>
-          <MovieDetailContainer match={ match }/> }/>
-        <Route exact path='/:userid/favorites/:movieid' render={({ match }) =>
-          <FavoritesDetailContainer match = { match }/> }/>
-        <Route exact path='/:id/favorites' component={ FavoritesGridContainer } />
+        <Route
+          exact path='/'
+          render={ () => <MovieGridContainer />}/>
+        <Route
+          exact path='/signup'
+          component={ NewUserContainer }/>
+        <Route
+          exact path='/login'
+          render={ () => <LogInContainer history={ history } /> }/>
+        <Route
+          exact path='/movie/:id'
+          render={({ match }) =>
+            <MovieDetailContainer match={ match }/>
+          }/>
+        <Route
+          exact path='/:userid/favorites/:movieid'
+          render={({ match }) =>
+            <FavoritesDetailContainer match = { match }/>
+          }/>
+        <Route
+          exact path='/:id/favorites'
+          component={ FavoritesGridContainer }/>
       </div>
     )
   }

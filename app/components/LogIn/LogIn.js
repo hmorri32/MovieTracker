@@ -6,14 +6,14 @@ class LogIn extends Component {
   constructor() {
     super();
     this.state = {
-      email: 'tman2272@aol.com',
-      password: 'password',
+      email: '',
+      password: '',
       error: ''
     }
   }
 
   signIn() {
-    const { logIn } = this.props
+    const { logIn, history } = this.props
     const { email, password } = this.state;
 
     fetch('http://localhost:3000/api/users', {
@@ -30,7 +30,7 @@ class LogIn extends Component {
         response.json().then(user => {
           logIn(user.data);
         })
-        this.props.history.push('/')
+        history.push('/')
       }
     })
   }
@@ -45,7 +45,9 @@ class LogIn extends Component {
   }
 
   welcomeUser(){
-    if(!this.props.user.name) {
+    const { name } = this.props.user
+    const { error } = this.state
+    if(!name) {
     return (
       <div className='login-page'>
         <div className='form'>
@@ -56,12 +58,14 @@ class LogIn extends Component {
                    value={ this.state.email }
                    onChange={ (e) => this.setState({ email: e.target.value }) }
               />
-            <input type='password'
-                   name='password'
-                   placeholder='password'
-                   value={this.state.password}
-                   onChange={(e) => this.setState({ password: e.target.value })}
+            <input
+              type='password'
+              name='password'
+              placeholder='password'
+              value={ this.state.password }
+              onChange={ (e) => this.setState({ password: e.target.value }) }
               />
+
             <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
             <p className="message"> Not registered?
               <Link className="sign-up" to="/signup">
@@ -69,16 +73,19 @@ class LogIn extends Component {
               </Link>
             </p>
           </div>
-          <h2 className='error'>{this.state.error}</h2>
+          { error && <h2 className='error'>{ error }</h2>}
         </div>
       </div>
       )
     }
-    if (this.props.user.name) {
+    if (name) {
       return (
         <div>
-          <p>Welcome {this.props.user.name}</p>
-          <button className="sign-out" onClick={ () => this.signOut() }> Log Out </button>
+          <p>Welcome { name }</p>
+          <button
+            className="sign-out"
+            onClick={ () => this.signOut() }> Log Out
+          </button>
         </div>
       )
     }
@@ -92,7 +99,5 @@ class LogIn extends Component {
     )
   }
 }
-
-
 
 export default LogIn;
