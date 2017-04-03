@@ -29,6 +29,7 @@ class LogIn extends Component {
       } else {
         response.json().then((user) => {
           logIn(user.data);
+          console.log(user.data)
         })
         this.props.history.push('/')
       }
