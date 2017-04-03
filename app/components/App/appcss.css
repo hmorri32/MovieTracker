@@ -1,5 +1,6 @@
 .header-wrap {
   text-align: center;
+  position: relative;
 }
 
 .movie-watcher-h1 {
@@ -15,8 +16,20 @@
 color: white;
 }
 
-
 .sign-in {
+  text-decoration: none;
+  color: red;
+  position: absolute;
+  right: 55px;
+  top: -13px;
+}
+
+.sign-in:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.favorites-link {
   text-decoration: none;
   color: red;
 }
