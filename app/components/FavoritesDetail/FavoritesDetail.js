@@ -9,8 +9,9 @@ export default class FavoritesDetail extends Component {
 
   render(){
     const movie2 = this.findMovie()[0]
+    console.log(movie2);
     return(
-      <div>
+      <div className="movie-div" style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie2.poster_path})` } }>
           <p className="title">{ movie2.title }</p>
           <p className="description">{ movie2.overview }</p>
           <p className="vote">{ movie2.vote_average }</p>
