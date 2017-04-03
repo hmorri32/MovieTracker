@@ -5,6 +5,7 @@
   height: 320px;
   background-repeat: no-repeat;
   background-size: contain;
+  max-width: 1256px;
 }
 
 .info-div {
@@ -36,6 +37,9 @@
   font-size: 17px;
   color: #999;
 }
+.vote{
+  width: 100%;
+}
 
 .favorites {
   background-color: black;
@@ -44,6 +48,26 @@
   font-family: 'Amatic SC', cursive;
   align-self: center;
   padding: 2px 14px;
+  width: 73px;
+}
+
+.favorite-wrapper{
+  text-align: center;
+}
+
+.alert-div{
+  width: 100%;
+  margin: 0;
+}
+
+.detail-category{
+  margin: 0;
+  color: white;
+}
+
+.alert-div p {
+  width: 100%;
+margin: 11px 63px;
 }
 
 .favorites:hover {

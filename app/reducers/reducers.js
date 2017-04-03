@@ -24,15 +24,6 @@ export const user = (state = initialUserState, action) => {
   }
 };
 
-export const favorites = (state=[], action) => {
-  switch(action.type) {
-    case 'ADD_MOVIE_TO_FAVORITES':
-      return [...state, action.movie]
-    default:
-      return state
-  }
-};
-
 export const userFavorites = (state=[], action) => {
   switch(action.type) {
     case 'RETRIVE_FAVORITE_MOVIES':

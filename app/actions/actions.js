@@ -19,13 +19,6 @@ export const logOut = () => {
   }
 };
 
-export const addMovieToFavorites = (movie) => {
-  return {
-    type: 'ADD_MOVIE_TO_FAVORITES',
-    movie
-  }
-};
-
 export const retrieveFavoriteMovies = (movie) => {
   return {
     type: 'RETRIVE_FAVORITE_MOVIES',

@@ -77,7 +77,7 @@ class LogIn extends Component {
       return (
         <div>
           <p>Welcome {this.props.user.name}</p>
-          <button onClick={ () => this.signOut() }> Log Out </button>
+          <button className="sign-out" onClick={ () => this.signOut() }> Log Out </button>
         </div>
       )
     }

@@ -37,7 +37,6 @@ export default class App extends Component {
           </Link>
 
           { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : <h2 className='sign-in' onClick={ () => this.signOut() }> Log Out </h2> }
-
           { this.props.user.name != undefined ? <Link className='favorites-link' to={`/${this.props.user.id}/favorites`}><h2>Favorites</h2></Link> : null }
 
         </header>
