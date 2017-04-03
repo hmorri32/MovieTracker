@@ -81,23 +81,6 @@ describe('favorites reducer', () => {
     expect(movies(undefined, {})).toEqual(initialState);
   });
 
-  it('should add movies to the fav array when action is ADD_MOVIE_TO_FAVORITES', () => {
-
-    const favMovie = [
-      {
-        title: 'beauty and the beast',
-        description: 'a really good movie',
-        vote: 8
-      }
-    ]
-
-    expect(favorites(undefined, {
-      type: 'ADD_MOVIE_TO_FAVORITES',
-      favorites: favMovie
-    }))
-  });
-});
-
 describe('userFavorites reducer', () => {
 
   const initialState = [];
@@ -106,15 +89,15 @@ describe('userFavorites reducer', () => {
     expect(userFavorites(undefined, {})).toEqual(initialState);
   });
 
-  it.skip('should retrieve favorite movies from favmovies array when action is RETRIVE_FAVORITE_MOVIES', () => {
+  it('should retrieve favorite movies from favmovies array when action is RETRIVE_FAVORITE_MOVIES', () => {
 
-    const favorites = [
-      {
-        status: 'success',
-        message: 'Move was added to favorites',
-        id: 23
-      }
-    ]
+    // const favorites = [
+    //   {
+    //     status: 'success',
+    //     message: 'Movie was added to favorites',
+    //     id: 23
+    //   }
+    // ]
     const favMovieArray = [
       {
         id: 23,
@@ -128,10 +111,8 @@ describe('userFavorites reducer', () => {
       }
     ]
 
-    expect(userFavorites(favorites, {
-      type: 'RETRIVE_FAVORITE_MOVIES',
-      userfavorites: favMovieArray
-    }))
+    expect(userFavorites(undefined, {favMovieArray}));
 
-  })
-});
+    })
+  });
+})
