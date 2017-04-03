@@ -1,5 +1,6 @@
 .header-wrap {
-  text-align: center;
+  align-content: center;
+  position: relative;
 }
 
 .movie-watcher-h1 {
@@ -16,7 +17,20 @@ color: white;
 }
 
 
-.sign-in {
-  text-decoration: none;
+.sign-in,
+.sign-out {
+  position: absolute;
+  right: 55px;
+  top: -13px;
+  background-color: transparent;
+  border: 2px red solid;
   color: red;
+  font-family: 'Amatic SC', cursive;
+  align-self: center;
+  padding: 2px 14px;
+  font-size: 19px;
+}
+
+button:hover{
+  cursor: pointer;
 }

@@ -5,6 +5,7 @@
   height: 320px;
   background-repeat: no-repeat;
   background-size: contain;
+  max-width: 1256px;
 }
 
 .info-div {

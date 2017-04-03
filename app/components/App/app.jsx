@@ -44,7 +44,7 @@ export default class App extends Component {
             </h1>
           </Link>
 
-          { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : null }
+          { this.props.user.name === undefined ? <Link className='sign-in' to='/login'><button className="sign-in" >Log In</button></Link> : null }
 
           { this.props.user.name != undefined ? <Link className='favorites-link' to={`/${this.props.user.id}/favorites`}><h2>Favorites</h2></Link> : null }
 
