@@ -27,9 +27,8 @@ class LogIn extends Component {
           error: 'Email and Password do not match'
         });
       } else {
-        response.json().then((user) => {
+        response.json().then(user => {
           logIn(user.data);
-          console.log(user.data)
         })
         this.props.history.push('/')
       }
@@ -51,24 +50,26 @@ class LogIn extends Component {
       <div className='login-page'>
         <div className='form'>
           <div className='login-form'>
-            <input
-              type='text'
-              name='email'
-              placeholder='username'
-              value={ this.state.email }
-              onChange={ (e) => this.setState({ email: e.target.value }) }
+            <input type='text'
+                   name='email'
+                   placeholder='username'
+                   value={ this.state.email }
+                   onChange={ (e) => this.setState({ email: e.target.value }) }
               />
-            <input
-              type='password'
-              name='password'
-              placeholder='password'
-              value={this.state.password}
-              onChange={(e) => this.setState({ password: e.target.value })}
+            <input type='password'
+                   name='password'
+                   placeholder='password'
+                   value={this.state.password}
+                   onChange={(e) => this.setState({ password: e.target.value })}
               />
             <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
-            <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
+            <p className="message"> Not registered?
+              <Link to="/signup">
+                <button> Sign Up</button>
+              </Link>
+            </p>
           </div>
-          { this.state.error && <h2 className='error'>{this.state.error}</h2>}
+          <h2 className='error'>{this.state.error}</h2>
         </div>
       </div>
       )
