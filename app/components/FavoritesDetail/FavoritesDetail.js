@@ -29,7 +29,9 @@ export default class FavoritesDetail extends Component {
           <p className="title">{ movie2.title }</p>
           <p className="description">{ movie2.overview }</p>
           <p className="vote"><span className="detail-category">Rating:</span> { movie2.vote_average }</p>
-          <Link to={`/${this.props.user.id}/favorites`}><button onClick={() => this.deleteFavorite()} className="favorites">Delete Favorite</button></Link>
+          <Link to={`/${this.props.user.id}/favorites`}>
+            <button onClick={() => this.deleteFavorite()} className="favorites">Delete Favorite</button>
+          </Link>
         </div>
       </div>
     )

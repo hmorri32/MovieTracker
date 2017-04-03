@@ -7,6 +7,7 @@ export default class MovieGrid extends Component {
     const { movies } = this.props
     return (
       <div className="movie-grid">
+
         {movies.map((movie, i) => {
           return <Movie
                     title={ movie.original_title }

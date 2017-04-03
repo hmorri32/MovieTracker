@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default class MovieDetail extends Component {
 
-  callFavApi(e) {
+  callFavApi() {
     const movie = this.findMovie()[0]
-    e.preventDefault()
     fetch('http://localhost:3000/api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},

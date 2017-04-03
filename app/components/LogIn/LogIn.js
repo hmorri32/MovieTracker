@@ -6,8 +6,8 @@ class LogIn extends Component {
   constructor() {
     super();
     this.state = {
-      email: 'tman2272@aol.com',
-      password: 'password',
+      email: '',
+      password: '',
       error: ''
     }
   }
@@ -65,11 +65,13 @@ class LogIn extends Component {
               value={ this.state.password }
               onChange={ (e) => this.setState({ password: e.target.value }) }
               />
-            <button
-              id='signin-btn'
-              onClick={ () => this.signIn() }>Log In
-            </button>
-            <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
+
+            <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
+            <p className="message"> Not registered?
+              <Link className="sign-up" to="/signup">
+                <button> Sign Up</button>
+              </Link>
+            </p>
           </div>
           { error && <h2 className='error'>{ error }</h2>}
         </div>

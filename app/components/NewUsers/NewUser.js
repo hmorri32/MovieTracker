@@ -18,10 +18,8 @@ export default class NewUser extends Component {
   }
 
   createUser(e) {
-    e.preventDefault();
-
+    e.preventDefault()
     const { name, email, password } = this.state;
-
     if (!this.validateEmail(email)){
       this.setState({
         error: 'Not a valid email'
@@ -49,28 +47,24 @@ export default class NewUser extends Component {
       <div className='login-page'>
         <div className='form'>
           <form>
-            <input
-              type="text"
-              name="name"
-              placeholder='name'
-              onChange={ (e) => this.setState({ name: e.target.value }) }
+            <input type="text"
+                   name="name"
+                   placeholder='name'
+                   onChange={ (e) => this.setState({ name: e.target.value }) }
               />
-            <input
-              type="text"
-              name="email"
-              placeholder='email'
-              onChange={ (e) => this.setState({ email: e.target.value }) }
+            <input type="text"
+                   name="email"
+                   placeholder='email'
+                   onChange={ (e) => this.setState({ email: e.target.value }) }
               />
-            <input
-              type="password"
-              name="password"
-              placeholder='password'
-              onChange={ (e) => this.setState({ password: e.target.value }) }
+            <input type="password"
+                   name="password"
+                   placeholder='password'
+                   onChange={ (e) => this.setState({ password: e.target.value }) }
               />
-              <button
-                name="submit"
-                onClick={ (e) => this.createUser(e) } > Submit
-              </button>
+            <button name="submit"
+                    onClick={ (e) => this.createUser(e) } > Submit
+            </button>
           </form>
           { this.state.error && <h2 className='error'>{this.state.error}</h2>}
         </div>
