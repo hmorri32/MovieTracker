@@ -39,12 +39,3 @@ export const clearMovies = () => {
     movie: []
   }
 }
-
-
-
-
-
-
-
-
-

@@ -33,10 +33,10 @@ export default class FavoritesGrid extends Component {
       <div className="movie-grid">
         {this.props.userFavorites.map((movie, i) => {
           return (
-            <Link to={`/favorites/${movie.id}`} className='movie-card'>
+            <Link to={`/${this.props.user.id}/favorites/${movie.movie_id}`} className='movie-card' key={ i }
+>
               <div
                 className="movie-card"
-                key={ i }
                 style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})` } }>
               </div>
             </Link>
@@ -46,5 +46,3 @@ export default class FavoritesGrid extends Component {
     )
   }
 }
-
-
