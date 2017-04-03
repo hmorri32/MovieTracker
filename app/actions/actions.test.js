@@ -52,27 +52,6 @@ describe('LogIn actions', () => {
     expect(createdActions[0]).toEqual(expectedAction)
   })
 
-
-  it('creates ADD_MOVIE_TO_FAVORITES when initiating the addMovieToFavorites action', () => {
-
-    const mockFav = {
-      body: {
-        status:"success",
-        message:"Movie was added to favorites",
-        id: 1
-      }
-    }
-
-    let expectedAction = { type: 'ADD_MOVIE_TO_FAVORITES', movie: mockFav}
-
-    store.dispatch(actions.addMovieToFavorites(mockFav));
-    let createdActions = store.getActions();
-
-    expect(createdActions.length).toEqual(1)
-    expect(createdActions[0]).toEqual(expectedAction)
-
-  })
-
   it('clears fav movies on clear fav movies reducer', () => {
 
     const mockFav = {
@@ -83,9 +62,9 @@ describe('LogIn actions', () => {
       }
     }
 
-    let expectedAction = { type: 'ADD_MOVIE_TO_FAVORITES', movie: mockFav}
+    let expectedAction = { type: 'RETRIVE_FAVORITE_MOVIES', movie: mockFav}
 
-    store.dispatch(actions.addMovieToFavorites(mockFav));
+    store.dispatch(actions.retrieveFavoriteMovies(mockFav));
     let createdActions = store.getActions();
 
     expect(createdActions.length).toEqual(1)

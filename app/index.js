@@ -32,7 +32,6 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 const root = combineReducers({
   movies,
   user,
-  favorites,
   userFavorites,
   router: routerReducer
 })

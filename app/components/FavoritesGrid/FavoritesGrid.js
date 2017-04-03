@@ -5,10 +5,10 @@ import Movie from '../Movie/Movie';
 export default class FavoritesGrid extends Component {
 
   componentDidMount() {
-    if(this.props.user !== undefined) {
+    if(this.props.user) {
       fetch(`http://localhost:3000/api/users/${this.props.user.id}/favorites`)
       .then(response => response.json())
-      .then((json) => {
+      .then(json => {
         let movieArray = json.data;
         let reduced = movieArray.reduce((arr, obj) => {
           const duplicate = arr.find(stuff => obj.movie_id === stuff.movie_id)
