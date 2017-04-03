@@ -36,7 +36,9 @@ export default class MovieDetail extends Component {
         <div className='info-div'>
           <p className="title">{ movie.title }</p>
           <p className="description">{ movie.overview }</p>
-          <p className="vote"><span className="detail-category">Rating:</span>{movie.vote_average}</p>
+          <p className="vote">
+            <span className="detail-category">Rating: </span>{movie.vote_average}
+          </p>
           <div className='favorite-wrapper'>
             <button
               className='favorites'

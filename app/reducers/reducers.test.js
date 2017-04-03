@@ -91,13 +91,6 @@ describe('userFavorites reducer', () => {
 
   it('should retrieve favorite movies from favmovies array when action is RETRIVE_FAVORITE_MOVIES', () => {
 
-    // const favorites = [
-    //   {
-    //     status: 'success',
-    //     message: 'Movie was added to favorites',
-    //     id: 23
-    //   }
-    // ]
     const favMovieArray = [
       {
         id: 23,
