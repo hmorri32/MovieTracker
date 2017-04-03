@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Link }                 from 'react-router-dom';
+
 
 export default class FavoritesDetail extends Component {
 
   findMovie() {
     const { userFavorites } = this.props
     const { movieid } = this.props.match.params
-    
+
     return userFavorites.filter(movie => parseInt(movieid) === movie.movie_id)
   }
 
@@ -31,6 +33,8 @@ export default class FavoritesDetail extends Component {
             onClick={() => this.deleteFavorite()}
             className="favorites">Delete Favorite
           </button>
+          <p className="vote"><span className="detail-category">Rating:</span> { movie2.vote_averag}</p>
+          <Link to={`/${this.props.user.id}/favorites`}><button onClick={() => this.deleteFavorite()} className="favorites">Delete Favorite</button></Link>
         </div>
       </div>
     )

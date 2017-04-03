@@ -27,7 +27,7 @@ class LogIn extends Component {
           error: 'Email and Password do not match'
         });
       } else {
-        response.json().then((user) => {
+        response.json().then(user => {
           logIn(user.data);
         })
         history.push('/')
@@ -52,12 +52,11 @@ class LogIn extends Component {
       <div className='login-page'>
         <div className='form'>
           <div className='login-form'>
-            <input
-              type='text'
-              name='email'
-              placeholder='username'
-              value={ this.state.email }
-              onChange={ (e) => this.setState({ email: e.target.value }) }
+            <input type='text'
+                   name='email'
+                   placeholder='username'
+                   value={ this.state.email }
+                   onChange={ (e) => this.setState({ email: e.target.value }) }
               />
             <input
               type='password'
