@@ -1,46 +1,48 @@
 .header-wrap {
-  text-align: center;
-  position: relative;
+  position   : relative;
+  text-align : center;
 }
 
 .movie-watcher-h1 {
-  text-decoration: none;
-  align-self: center;
-  font-family: 'Amatic SC', cursive;
-  font-weight: bold;
-  text-align: center;
-  color: red;
+  color           : red;
+  text-align      : center;
+  text-decoration : none;
+  align-self      : center;
+  font-family     : 'Amatic SC',
+                    cursive;
+  font-weight     : bold;
 }
 
 .movie-watcher-span {
-  color: white;
+  color : white;
 }
 
 .sign-in {
-  font-family: 'Amatic SC', cursive;
-
-  text-decoration: none;
-  color: red;
-  position: absolute;
-  right: 55px;
-  top: -13px;
+  position        : absolute;
+  top             : -13px;
+  right           : 55px;
+  color           : red;
+  text-decoration : none;
+  font-family     : 'Amatic SC',
+                    cursive;
 }
 
 .sign-in:hover {
-  color: white;
-  cursor: pointer;
+  color  : white;
+  cursor : pointer;
 }
 
 .favorites-link {
-  font-family: 'Amatic SC', cursive;
-  text-decoration: none;
-  color: red;
-  position: absolute;
-  left: 55px;
-  top: -13px;
+  position        : absolute;
+  top             : -13px;
+  left            : 55px;
+  color           : red;
+  text-decoration : none;
+  font-family     : 'Amatic SC',
+                    cursive;
 }
 
 .favorites-link:hover {
-  text-decoration: none;
-  color: white;
+  color           : white;
+  text-decoration : none;
 }

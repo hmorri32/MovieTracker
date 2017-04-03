@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie.js';
-// import './movieGridcss';
 
 export default class MovieGrid extends Component {
 
   render() {
+    const { movies } = this.props
     return (
       <div className="movie-grid">
-        {this.props.movies.map((movie, i) => {
+        {movies.map((movie, i) => {
           return <Movie
                     title={ movie.original_title }
                     poster={ movie.poster_path }

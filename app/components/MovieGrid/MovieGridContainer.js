@@ -5,5 +5,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-
 export default connect(mapStateToProps)(MovieGrid);

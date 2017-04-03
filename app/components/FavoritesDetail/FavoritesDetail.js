@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Link }                 from 'react-router-dom';
 
 
-
 export default class FavoritesDetail extends Component {
 
   findMovie() {
-    return this.props.userFavorites.filter(movie => parseInt(this.props.match.params.movieid) === movie.movie_id)
+    const { userFavorites } = this.props
+    const { movieid } = this.props.match.params
+
+    return userFavorites.filter(movie => parseInt(movieid) === movie.movie_id)
   }
 
-  deleteFavorite(){
+  deleteFavorite() {
     const { userid, movieid } = this.props.match.params;
     fetch(`http://localhost:3000/api/users/${userid}/favorites/${movieid}`,{
       method: 'DELETE',
@@ -18,10 +20,11 @@ export default class FavoritesDetail extends Component {
     })
   }
 
-  render(){
+  render() {
     const movie2 = this.findMovie()[0]
     return(
-      <div className="movie-div" style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie2.poster_path})` } }>
+      <div className="movie-div"
+           style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie2.poster_path})` } }>
         <div className='info-div'>
           <p className="title">{ movie2.title }</p>
           <p className="description">{ movie2.overview }</p>
