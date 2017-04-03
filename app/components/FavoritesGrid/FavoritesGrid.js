@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import Movie from '../Movie/Movie';
-
 
 export default class FavoritesGrid extends Component {
 
@@ -29,16 +27,19 @@ export default class FavoritesGrid extends Component {
   }
 
   render() {
+    const { userFavorites } = this.props
+    const { id } = this.props.user
     return(
       <div className="movie-grid">
-        {this.props.userFavorites.map((movie, i) => {
+        {userFavorites.map((movie, i) => {
           return (
             <Link
-              to={`/${this.props.user.id}/favorites/${movie.movie_id}`}                 className='movie-card'
+              to={ `/${id}/favorites/${movie.movie_id}` }
+              className='movie-card'
               key={ i }>
               <div
                 className="movie-card"
-                style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})` } }>
+                style={ {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})`}}>
               </div>
             </Link>
           )

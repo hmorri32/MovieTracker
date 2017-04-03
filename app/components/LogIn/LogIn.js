@@ -13,7 +13,7 @@ class LogIn extends Component {
   }
 
   signIn() {
-    const { logIn } = this.props
+    const { logIn, history } = this.props
     const { email, password } = this.state;
 
     fetch('http://localhost:3000/api/users', {
@@ -29,9 +29,8 @@ class LogIn extends Component {
       } else {
         response.json().then((user) => {
           logIn(user.data);
-          console.log(user.data)
         })
-        this.props.history.push('/')
+        history.push('/')
       }
     })
   }
@@ -46,7 +45,9 @@ class LogIn extends Component {
   }
 
   welcomeUser(){
-    if(!this.props.user.name) {
+    const { name } = this.props.user
+    const { error } = this.state
+    if(!name) {
     return (
       <div className='login-page'>
         <div className='form'>
@@ -62,22 +63,28 @@ class LogIn extends Component {
               type='password'
               name='password'
               placeholder='password'
-              value={this.state.password}
-              onChange={(e) => this.setState({ password: e.target.value })}
+              value={ this.state.password }
+              onChange={ (e) => this.setState({ password: e.target.value }) }
               />
-            <button id='signin-btn' onClick={ () => this.signIn() }>Log In</button>
+            <button
+              id='signin-btn'
+              onClick={ () => this.signIn() }>Log In
+            </button>
             <p className="message">Not registered? <Link to="/signup"><button> Sign Up</button></Link></p>
           </div>
-          { this.state.error && <h2 className='error'>{this.state.error}</h2>}
+          { error && <h2 className='error'>{ error }</h2>}
         </div>
       </div>
       )
     }
-    if (this.props.user.name) {
+    if (name) {
       return (
         <div>
-          <p>Welcome {this.props.user.name}</p>
-          <button className="sign-out" onClick={ () => this.signOut() }> Log Out </button>
+          <p>Welcome { name }</p>
+          <button
+            className="sign-out"
+            onClick={ () => this.signOut() }> Log Out
+          </button>
         </div>
       )
     }
@@ -91,7 +98,5 @@ class LogIn extends Component {
     )
   }
 }
-
-
 
 export default LogIn;

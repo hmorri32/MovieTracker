@@ -1,16 +1,16 @@
 body {
-  background-color: black;
+  background-color : black;
 }
 
-.movie-card{
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  max-width: 120px;
-  height: 177px;
-  margin: 5px;
+.movie-card {
+  width             : 100%;
+  max-width         : 120px;
+  height            : 177px;
+  margin            : 5px;
+  background-repeat : no-repeat;
+  background-size   : cover;
 }
 
 .movie-card:hover {
-  cursor: pointer;
+  cursor : pointer;
 }

@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Amatic SC';
   background: linear-gradient(to left, black 72%, transparent 97%);
   background-position: -27px;
   width: 72%;
@@ -45,7 +45,7 @@
   background-color: black;
   border: 2px white solid;
   color: white;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Amatic SC';
   align-self: center;
   padding: 2px 14px;
   width: 73px;
@@ -67,7 +67,7 @@
 
 .alert-div p {
   width: 100%;
-margin: 11px 63px;
+  margin: 11px 63px;
 }
 
 .favorites:hover {

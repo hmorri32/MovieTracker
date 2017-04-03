@@ -3,7 +3,7 @@ export const addMovies = (movie) => {
     type: 'ADD_MOVIES',
     movie
   }
-}
+};
 
 export const logIn = (user) => {
   return {
@@ -31,4 +31,4 @@ export const clearMovies = () => {
     type: 'CLEAR_FAVORITE_MOVIES',
     movie: []
   }
-}
+};
