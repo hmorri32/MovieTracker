@@ -38,7 +38,9 @@ export default class App extends Component {
             </h1>
             { name != undefined ? <h3>Welcome { name }</h3> : null  }
           </Link>
-          { name === undefined ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link> : <h2 className='sign-in' onClick={ () => this.signOut() }> Log Out </h2> }
+          { name === undefined
+            ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link>
+            : <Link className='sign-in' to='/'><h2 onClick={ () => this.signOut() }> Log Out </h2></Link> }
           { name != undefined ? <Link className='favorites-link' to={`/${id}/favorites`}><h2>Favorites</h2></Link> : null }
         </header>
         <Route
