@@ -41,7 +41,9 @@ export default class App extends Component {
           { name === undefined
             ? <Link className='sign-in' to='/login'><h2>Log In</h2></Link>
             : <Link className='sign-in' to='/'><h2 onClick={ () => this.signOut() }> Log Out </h2></Link> }
-          { name != undefined ? <Link className='favorites-link' to={`/${id}/favorites`}><h2>Favorites</h2></Link> : null }
+          { name != undefined
+            ? <Link className='favorites-link' to={`/${id}/favorites`}><h2>Favorites</h2></Link>
+            : null }
         </header>
         <Route
           exact path='/'

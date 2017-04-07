@@ -21,10 +21,9 @@ export default class NewUser extends Component {
     e.preventDefault()
     const { name, email, password } = this.state;
     if (!this.validateEmail(email)){
-      this.setState({
+      return this.setState({
         error: 'Not a valid email'
       })
-      return
     }
     fetch('http://localhost:3000/api/users/new', {
       method: 'POST',
