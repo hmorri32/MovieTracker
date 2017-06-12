@@ -26,7 +26,7 @@ describe('LogIn Component', () => {
 
   it('displays error', async (done) => {
 
-    fetchMock.post('http://localhost:3000/api/users', { status: 500, body: {} })
+    fetchMock.post('/api/users', { status: 500, body: {} })
 
     const emailInput = wrapper.find('input[name="email"]');
     const submitBtn = wrapper.find('#signin-btn');

@@ -25,7 +25,7 @@ export default class NewUser extends Component {
         error: 'Not a valid email'
       })
     }
-    fetch('http://localhost:3000/api/users/new', {
+    fetch('/api/users/new', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password })

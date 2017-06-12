@@ -13,7 +13,7 @@ export default class FavoritesDetail extends Component {
 
   deleteFavorite() {
     const { userid, movieid } = this.props.match.params;
-    fetch(`http://localhost:3000/api/users/${userid}/favorites/${movieid}`,{
+    fetch(`/api/users/${userid}/favorites/${movieid}`,{
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       id: movieid

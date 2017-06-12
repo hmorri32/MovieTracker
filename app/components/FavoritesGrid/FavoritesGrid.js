@@ -6,7 +6,7 @@ export default class FavoritesGrid extends Component {
 
   componentDidMount() {
     if(this.props.user) {
-      fetch(`http://localhost:3000/api/users/${this.props.user.id}/favorites`)
+      fetch(`/api/users/${this.props.user.id}/favorites`)
       .then(response => response.json())
       .then(json => {
         let movieArray = json.data;

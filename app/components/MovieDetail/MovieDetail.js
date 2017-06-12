@@ -5,7 +5,7 @@ export default class MovieDetail extends Component {
 
   callFavApi() {
     const movie = this.findMovie()[0]
-    fetch('http://localhost:3000/api/users/favorites/new', {
+    fetch('/api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({
