@@ -18,23 +18,24 @@ class LogIn extends Component {
     const { logIn, history } = this.props
     const { email, password } = this.state;
 
-    // fetch('/api/users', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ email, password })
-    // })
-    // .then(response => {
-    //   if(!response.ok) {
-    //     this.setState({
-    //       error: 'Email and Password do not match'
-    //     });
-    //   } else {
-    //     response.json().then(user => {
-    //       logIn(user.data);
-    //     })
-    //     history.push('/')
-    //   }
-    // })
+    fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+    .then(response => {
+      console.log(response);
+      if(!response.ok) {
+        this.setState({
+          error: 'Email and Password do not match'
+        });
+      } else {
+        response.json().then(user => {
+          logIn(user.data);
+        })
+        history.push('/')
+      }
+    })
   }
 
   signOut() {

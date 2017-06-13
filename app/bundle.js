@@ -35185,6 +35185,7 @@
 	        headers: { 'Content-Type': 'application/json' },
 	        body: JSON.stringify({ email: email, password: password })
 	      }).then(function (response) {
+	        console.log(response);
 	        if (!response.ok) {
 	          _this2.setState({
 	            error: 'Email and Password do not match'
