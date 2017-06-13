@@ -29605,7 +29605,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=e918cc56cafd311d7955d426f4da1685&language=en-US&page=1').then(function (response) {
+	      fetch('//api.themoviedb.org/3/movie/now_playing?api_key=e918cc56cafd311d7955d426f4da1685&language=en-US&page=1').then(function (response) {
 	        return response.json();
 	      }).then(function (json) {
 	        var movies = json.results;
@@ -34796,7 +34796,7 @@
 	          error: 'Not a valid email'
 	        });
 	      }
-	      fetch('http://localhost:3000/api/users/new', {
+	      fetch('/api/users/new', {
 	        method: 'POST',
 	        headers: { 'Content-Type': 'application/json' },
 	        body: JSON.stringify({ name: name, email: email, password: password })
@@ -34988,7 +34988,7 @@
 	    key: 'callFavApi',
 	    value: function callFavApi() {
 	      var movie = this.findMovie()[0];
-	      fetch('http://localhost:3000/api/users/favorites/new', {
+	      fetch('/api/users/favorites/new', {
 	        method: 'POST',
 	        headers: { 'Content-Type': 'application/json' },
 	        body: JSON.stringify({
@@ -35177,7 +35177,7 @@
 	          password = _state.password;
 	
 	
-	      fetch('http://localhost:3000/api/users', {
+	      fetch('/api/users', {
 	        method: 'POST',
 	        headers: { 'Content-Type': 'application/json' },
 	        body: JSON.stringify({ email: email, password: password })
@@ -35387,7 +35387,7 @@
 	      var _this2 = this;
 	
 	      if (this.props.user) {
-	        fetch('http://localhost:3000/api/users/' + this.props.user.id + '/favorites').then(function (response) {
+	        fetch('/api/users/' + this.props.user.id + '/favorites').then(function (response) {
 	          return response.json();
 	        }).then(function (json) {
 	          var movieArray = json.data;
@@ -35528,7 +35528,7 @@
 	          userid = _props$match$params.userid,
 	          movieid = _props$match$params.movieid;
 	
-	      fetch('http://localhost:3000/api/users/' + userid + '/favorites/' + movieid, {
+	      fetch('/api/users/' + userid + '/favorites/' + movieid, {
 	        method: 'DELETE',
 	        headers: { 'Content-Type': 'application/json' },
 	        id: movieid
