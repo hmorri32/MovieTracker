@@ -8,9 +8,9 @@ module.exports = {
      './app/index.js'
    ],
    output: {
-     path: __dirname,
+     path: path.join(__dirname, 'app'),
      filename: 'bundle.js',
-     publicPath: '/'
+    //  publicPath: '/'
    },
    module: {
      loaders: [{
@@ -19,7 +19,7 @@ module.exports = {
        include: path.join(__dirname, 'app'),
        exclude: /node_modules/,
        query: {
-         presets: ['es2015', 'react']
+         presets: ['es2015', 'react', 'stage-3']
        }
      },
      { test: /\.css$/, loader: 'style-loader!css-loader' },
