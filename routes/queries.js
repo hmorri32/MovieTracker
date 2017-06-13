@@ -5,7 +5,7 @@ var options = {
   promiseLib: promise
 };
 
-var env = process.env.DATABASE_URL;
+var env = process.env.DATABASE_URL + `?ssl=true`;
 
 var pgp = require('pg-promise')(options);
 var connectionString = 'postgres://localhost:5432/users';
