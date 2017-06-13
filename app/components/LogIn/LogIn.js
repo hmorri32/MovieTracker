@@ -13,6 +13,8 @@ class LogIn extends Component {
   }
 
   signIn() {
+    console.log("hit");
+    
     const { logIn, history } = this.props
     const { email, password } = this.state;
 
