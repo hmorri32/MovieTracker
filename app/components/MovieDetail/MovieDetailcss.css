@@ -17,8 +17,8 @@
   background: linear-gradient(to left, black 72%, transparent 97%);
   background-position: -27px;
   width: 72%;
+  min-height: 100%;
   float: right;
-  height: 100%;
 }
 
 .info-div *{
@@ -85,4 +85,24 @@ margin: 11px 0px 11px 62px;
   text-decoration: none;
   margin: none;
   color: red;
+}
+
+
+/**************** MEDIA QUERIES ***************/
+
+@media (max-width: 745px) {
+  .movie-div{
+height: 850px;
+  }
+
+  .info-div {
+    align-items: center;
+    background: linear-gradient(to top, black 62%, transparent 71%);
+        width: 100%;
+  }
+
+  .info-div *{
+    margin: 0;
+  }
+
 }
