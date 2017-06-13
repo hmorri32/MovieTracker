@@ -14,7 +14,7 @@
   align-items: flex-start;
   flex-direction: column;
   font-family: 'Amatic SC';
-  background: linear-gradient(to left, black 72%, transparent 97%);
+  background: linear-gradient(to left, black 72%, transparent 89%);
   background-position: -27px;
   width: 72%;
   min-height: 100%;
@@ -22,7 +22,7 @@
 }
 
 .info-div *{
-  margin-left: 22%;
+  margin-left: 26%;
   margin-top: 0;
 }
 
