@@ -90,7 +90,7 @@ margin: 11px 0px 11px 62px;
 
 /**************** MEDIA QUERIES ***************/
 
-@media (max-width: 745px) {
+@media (max-width: 860px) {
   .movie-div{
 height: 850px;
   }
