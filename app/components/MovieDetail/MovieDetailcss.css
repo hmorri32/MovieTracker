@@ -22,7 +22,7 @@
 }
 
 .info-div *{
-  margin-left: 33%;
+  margin-left: 22%;
   margin-top: 0;
 }
 
@@ -38,7 +38,7 @@
   color: #999;
 }
 .vote{
-  width: 100%;
+  width: 65%;
 }
 
 .favorites {
@@ -66,8 +66,7 @@
 }
 
 .alert-div p {
-  width: 100%;
-  margin: 11px 63px;
+margin: 11px 0px 11px 62px;
 }
 
 .favorites:hover {
