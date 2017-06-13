@@ -114,3 +114,17 @@ padding: 8px 0;
 }
 
 }
+
+@media (max-width: 445px) {
+  .movie-div{
+    height: 717px;
+  }
+
+  .info-div {
+    background: linear-gradient(to top, black 63%, transparent 77%);
+  }
+
+  .title{
+    font-size: 35px;
+  }
+}
