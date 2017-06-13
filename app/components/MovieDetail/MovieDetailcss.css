@@ -105,4 +105,12 @@ height: 850px;
     margin: 0;
   }
 
+  .description, .vote, .favorites{
+    text-align: center;
+padding: 8px 0;
+  }
+  .alert-div p {
+    margin: 11px;
+}
+
 }
