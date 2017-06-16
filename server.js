@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/api', users);
+
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, './app/index.html'))
 });

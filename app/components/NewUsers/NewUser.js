@@ -18,7 +18,6 @@ export default class NewUser extends Component {
   }
 
   createUser(e) {
-    console.log("hit");
     e.preventDefault()
     const { name, email, password } = this.state;
     if (!this.validateEmail(email)){
