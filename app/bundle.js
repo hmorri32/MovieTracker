@@ -34785,7 +34785,6 @@
 	    value: function createUser(e) {
 	      var _this2 = this;
 	
-	      console.log("hit");
 	      e.preventDefault();
 	      var _state = this.state,
 	          name = _state.name,
@@ -35169,8 +35168,6 @@
 	    key: 'signIn',
 	    value: function signIn() {
 	      var _this2 = this;
-	
-	      console.log("hit");
 	
 	      var _props = this.props,
 	          logIn = _props.logIn,
